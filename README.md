@@ -28,11 +28,6 @@ Platform shortnames:
   
 ---
 
-## Issues:
-I'm pretty new to this, feel free to reach out if anything is not working as expected!
-
----
-
 ## Credits:
 - viking - creator of the [COLORFUL media set and theme](https://forums.launchbox-app.com/files/file/2081-colorful-bigbox-theme/)
 - Dan Patrick - [v2 Platform Logos](https://forums.launchbox-app.com/files/file/3402-v2-platform-logos-professionally-redrawn-official-versions-new-bigbox-defaults/page/2/?tab=comments#comment-12469)
@@ -42,7 +37,7 @@ I'm pretty new to this, feel free to reach out if anything is not working as exp
 ---
 
 ## To Do
-- [ ] Fall back images for no collection video
+- [x] Fall back images for no collection video
 - [ ] Mark as favorite button
 - [ ] Add favorite icons to game views
 - [ ] Touch controls
@@ -55,3 +50,12 @@ I'm pretty new to this, feel free to reach out if anything is not working as exp
 - [ ] Favorites filter
 - [ ] Favorites on top toggle
 - [ ] Fix game auto scroll on first transition to list view
+
+### Changelog:
+- 0.10 Initial release
+- 0.11 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
+
+### Issues:
+Reach out if anything is not working as expected or you have suggestions!
+
+---
