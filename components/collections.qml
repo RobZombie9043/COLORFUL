@@ -288,6 +288,21 @@ FocusScope {
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: vpx(30)
 		
+		Rectangle {
+			id: collectiondevicebg
+			
+			anchors.fill: parent
+			color: collectiondata.getColor(currentCollection.shortName);
+		}
+		
+		Image {
+			id: collectiondeviceimage
+			
+			anchors.fill: parent
+			fillMode: Image.PreserveAspectFit
+			source: "../assets/images/devices/" + currentCollection.shortName + ".png"
+		}
+		
 		Loader {
 			id: videoPreviewLoader
 			asynchronous: true
