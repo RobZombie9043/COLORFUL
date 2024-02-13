@@ -25,14 +25,6 @@ Platform shortnames:
 - `screenshot`
 - `wheel`
 - `video`
-  
----
-
-## Credits:
-- viking - creator of the [COLORFUL media set and theme](https://forums.launchbox-app.com/files/file/2081-colorful-bigbox-theme/)
-- Dan Patrick - [v2 Platform Logos](https://forums.launchbox-app.com/files/file/3402-v2-platform-logos-professionally-redrawn-official-versions-new-bigbox-defaults/page/2/?tab=comments#comment-12469)
-- All the Pegasus theme creators that I have borrowed ideas from especially [epic-memories-theme](https://github.com/FrenchGithubUser/epic-memories-theme), [retromega-sleipnir](https://github.com/TigraTT-Driver/shinretro) and [shinretro
-](https://github.com/y-muller/retromega-sleipnir)
 
 ---
 
@@ -40,9 +32,7 @@ Platform shortnames:
 - 0.10 Initial release
 - 0.11 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
 
----
-
-## Issues:
+### Issues:
 Reach out if anything is not working as expected or you have suggestions!
 
 ---
@@ -61,3 +51,11 @@ Reach out if anything is not working as expected or you have suggestions!
 - [ ] Favorites filter
 - [ ] Favorites on top toggle
 - [ ] Fix game auto scroll on first transition to list view
+
+---
+
+## Credits:
+- viking - creator of the [COLORFUL media set and theme](https://forums.launchbox-app.com/files/file/2081-colorful-bigbox-theme/)
+- Dan Patrick - [v2 Platform Logos](https://forums.launchbox-app.com/files/file/3402-v2-platform-logos-professionally-redrawn-official-versions-new-bigbox-defaults/page/2/?tab=comments#comment-12469)
+- All the Pegasus theme creators that I have borrowed ideas from especially [epic-memories-theme](https://github.com/FrenchGithubUser/epic-memories-theme), [retromega-sleipnir](https://github.com/TigraTT-Driver/shinretro) and [shinretro
+](https://github.com/y-muller/retromega-sleipnir)
