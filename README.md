@@ -34,9 +34,9 @@ I'm pretty new to this, feel free to reach out if anything is not working as exp
 ---
 
 ## Credits:
-viking - creator of the [COLORFUL media set and theme](https://forums.launchbox-app.com/files/file/2081-colorful-bigbox-theme/)
-Dan Patrick - [v2 Platform Logos](https://forums.launchbox-app.com/files/file/3402-v2-platform-logos-professionally-redrawn-official-versions-new-bigbox-defaults/page/2/?tab=comments#comment-12469)
-All the Pegasus theme creators that I have borrowed ideas from especially [epic-memories-theme](https://github.com/FrenchGithubUser/epic-memories-theme), [retromega-sleipnir](https://github.com/TigraTT-Driver/shinretro) and [shinretro
+- viking - creator of the [COLORFUL media set and theme](https://forums.launchbox-app.com/files/file/2081-colorful-bigbox-theme/)
+- Dan Patrick - [v2 Platform Logos](https://forums.launchbox-app.com/files/file/3402-v2-platform-logos-professionally-redrawn-official-versions-new-bigbox-defaults/page/2/?tab=comments#comment-12469)
+- All the Pegasus theme creators that I have borrowed ideas from especially [epic-memories-theme](https://github.com/FrenchGithubUser/epic-memories-theme), [retromega-sleipnir](https://github.com/TigraTT-Driver/shinretro) and [shinretro
 ](https://github.com/y-muller/retromega-sleipnir)
 
 ---
