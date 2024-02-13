@@ -187,8 +187,11 @@ FocusScope {
 				NumberAnimation { target: gameAxis; property: "opacity"; to: 0 ; duration: 250 }
 				SequentialAnimation {
 					ParallelAnimation {
-					NumberAnimation { target: gamescreenshotcontainer; property: "width"; to: vpx(738); duration: 500 }
-					NumberAnimation { target: videocontainer; property: "width"; to: vpx(738); duration: 500 }
+						NumberAnimation { target: videocontainer; property: "width"; to: vpx(738); duration: 500 }
+						SequentialAnimation {
+							PauseAnimation { duration: 300 }
+							NumberAnimation { target: gamescreenshot; property: "opacity"; to: 1; duration: 200 }
+						}	
 					}
 					ParallelAnimation {
 						NumberAnimation { target: scrollbuttonsContainer; property: "opacity"; to: 1; duration: 0 }
@@ -259,29 +262,6 @@ FocusScope {
 	}
 	
 	Item {
-		id: gamescreenshotcontainer
-		
-		width: parent.width * 0
-		height: parent.height
-		anchors.left: parent.left
-		anchors.leftMargin: vpx(512)		
-		anchors.top: parent.top
-		anchors.topMargin: vpx(30)
-		anchors.bottom: parent.bottom
-		anchors.bottomMargin: vpx(30)
-		opacity: videoSource ? 0 : 1
-		
-		Image {
-			id: gamescreenshot
-			
-			anchors.fill: parent
-			fillMode: Image.PreserveAspectFit
-			source: currentGame.assets.screenshot
-			
-		}
-	}
-	
-	Item {
 		id: videocontainer
 					
 		width: parent.width * 0
@@ -292,6 +272,15 @@ FocusScope {
 		anchors.topMargin: vpx(30)
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: vpx(30)
+		
+		Image {
+			id: gamescreenshot
+			
+			anchors.fill: parent
+			fillMode: Image.PreserveAspectFit
+			source: currentGame.assets.screenshot
+			opacity: 0
+		}
 		
 		Loader {
 			id: videoPreviewLoader
