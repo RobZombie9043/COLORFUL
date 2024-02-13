@@ -42,10 +42,10 @@ All the Pegasus theme creators that I have borrowed ideas from especially [epic-
 ---
 
 ## To Do
+- [ ] Fall back images for no collection video
 - [ ] Mark as favorite button
 - [ ] Add favorite icons to game views
 - [ ] Touch controls
-- [ ] Fall back images for no collection video
 - [ ] All/Favorites/Recents collections
 - [ ] Battery/clock
 - [ ] Shortcut keys to change collection index from game view
