@@ -9,78 +9,9 @@ Video assets for the Collections pages are required to be downloaded separately.
 Additional platforms can be found at the [creators page](https://forums.launchbox-app.com/files/file/1958-colorful-platform-video-set/).
 
 Collections must be named using the shortnames listed below to work properly or can be edited in the collectiondata.qml
+
 Platform shortnames:
-3do
-3ds
-amiga
-android
-arcade
-atari2600
-atari5200
-atari7800
-atarijaguar
-atarilynx
-atomiswave
-c64
-cdi
-colecovision
-cps1
-cps2
-cps3
-dos
-dreamcast
-famicom
-fbneo
-fds
-gamecube
-gamegear
-gb
-gba
-gbc
-genesis
-gw
-intellivision
-mame
-mastersystem
-msx
-mvs
-n64
-naomi
-nds
-neogeo
-neogeocd
-nes
-ngp
-ngpc
-odyssey2
-pcecd
-pcengine
-pico8
-pokemini
-ports
-ps2
-psp
-psx
-recents
-saturn
-scummvm
-sega32x
-segacd
-sfc
-sg1000
-snes
-supergrafx
-switch
-tg16
-tgcd
-vboy
-vectrex
-vita
-wii
-wswan
-wswanc
-x68000
-zxspectrum
+3do, 3ds, amiga, android, arcade, atari2600, atari5200, atari7800, atarijaguar, atarilynx, atomiswave, c64, cdi, colecovision, cps1, cps2, cps3, dos, dreamcast, famicom, fbneo, fds, gamecube, gamegear, gb, gba, gbc, genesis, gw, intellivision, mame, mastersystem, msx, mvs, n64, naomi, nds, neogeo, neogeocd, nes, ngp, ngpc, odyssey2, pcecd, pcengine, pico8, pokemini, ps2, psp, psx, saturn, scummvm, sega32x, segacd, sfc, sg1000, snes, supergrafx, switch, tg16, tgcd, vboy, vectrex, vita, wii, wswan, wswanc, x68000, zxspectrum
 
 ---
 ## Metadata used in the theme:
