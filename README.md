@@ -9,7 +9,8 @@ A port of the COLORFUL bigbox theme to Pegasus.
 
 ---
 
-Video assets for the Collections pages **are required** to be downloaded separately. 
+Video assets for the Collections pages **are required** to be downloaded separately (due to the size) or else there will only be static images. 
+
 1080P versions for many platforms (60+), renamed for this theme [are available here](https://mega.nz/folder/6VByEKTS#I7yela1-PrAzneLCQkw1jg).
 Additional platforms can be found at the [creators page](https://forums.launchbox-app.com/files/file/1958-colorful-platform-video-set/).
 
@@ -32,7 +33,7 @@ Platform shortnames:
 - 0.10 Initial release
 - 0.11 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
 
-Reach out if anything is not working as expected or you have suggestions!
+This has only been tested on an AYN Odin 2 but reach out if anything is not working as expected or you have suggestions!
 
 ---
 
