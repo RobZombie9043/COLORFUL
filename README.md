@@ -32,7 +32,6 @@ Platform shortnames:
 - 0.10 Initial release
 - 0.11 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
 
-### Issues:
 Reach out if anything is not working as expected or you have suggestions!
 
 ---
