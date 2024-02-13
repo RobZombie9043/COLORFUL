@@ -9,26 +9,6 @@ Video assets for the Collections pages are required to be downloaded separately.
 Additional platforms can be found at the [creators page](https://forums.launchbox-app.com/files/file/1958-colorful-platform-video-set/).
 
 Collections must be named using the shortnames listed below to work properly or can be edited in the collectiondata.qml
-
----
-## Metadata used in the theme:
-- `boxFront`
-- `screenshot`
-- `wheel`
-- `video`
-  
----
-## Issues:
-I'm pretty new to this, feel free to reach out if anything is not working as expected!
-
----
-## Credits:
-viking - creator of the [COLORFUL media set and theme](https://forums.launchbox-app.com/files/file/2081-colorful-bigbox-theme/)
-Dan Patrick - [v2 Platform Logos](https://forums.launchbox-app.com/files/file/3402-v2-platform-logos-professionally-redrawn-official-versions-new-bigbox-defaults/page/2/?tab=comments#comment-12469)
-All the Pegasus theme creators that I have borrowed ideas from especially [epic-memories-theme](https://github.com/FrenchGithubUser/epic-memories-theme), [retromega-sleipnir](https://github.com/TigraTT-Driver/shinretro) and [shinretro
-](https://github.com/y-muller/retromega-sleipnir)
-
----
 Platform shortnames:
 3do
 3ds
@@ -101,6 +81,24 @@ wswan
 wswanc
 x68000
 zxspectrum
+
+---
+## Metadata used in the theme:
+- `boxFront`
+- `screenshot`
+- `wheel`
+- `video`
+  
+---
+## Issues:
+I'm pretty new to this, feel free to reach out if anything is not working as expected!
+
+---
+## Credits:
+viking - creator of the [COLORFUL media set and theme](https://forums.launchbox-app.com/files/file/2081-colorful-bigbox-theme/)
+Dan Patrick - [v2 Platform Logos](https://forums.launchbox-app.com/files/file/3402-v2-platform-logos-professionally-redrawn-official-versions-new-bigbox-defaults/page/2/?tab=comments#comment-12469)
+All the Pegasus theme creators that I have borrowed ideas from especially [epic-memories-theme](https://github.com/FrenchGithubUser/epic-memories-theme), [retromega-sleipnir](https://github.com/TigraTT-Driver/shinretro) and [shinretro
+](https://github.com/y-muller/retromega-sleipnir)
 
 ---
 ## To Do
