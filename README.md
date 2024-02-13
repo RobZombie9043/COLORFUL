@@ -36,7 +36,18 @@ Platform shortnames:
 
 ---
 
-## To Do
+## Changelog:
+- 0.10 Initial release
+- 0.11 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
+
+---
+
+## Issues:
+Reach out if anything is not working as expected or you have suggestions!
+
+---
+
+## To Do:
 - [x] Fall back images for no collection video
 - [ ] Mark as favorite button
 - [ ] Add favorite icons to game views
@@ -50,12 +61,3 @@ Platform shortnames:
 - [ ] Favorites filter
 - [ ] Favorites on top toggle
 - [ ] Fix game auto scroll on first transition to list view
-
-### Changelog:
-- 0.10 Initial release
-- 0.11 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
-
-### Issues:
-Reach out if anything is not working as expected or you have suggestions!
-
----
