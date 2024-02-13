@@ -2,7 +2,9 @@
 
 ---
 A port of the COLORFUL bigbox theme to Pegasus.
-
+![CollectionDetails](.meta/screenshots/CollectionsWheel.png)
+![CollectionDetails](.meta/screenshots/CollectionsDetails.png)
+![CollectionDetails](.meta/screenshots/GamesListView.png)
 ---
 Video assets for the Collections pages are required to be downloaded separately. 
 1080P versions for many platforms (60+), renamed for this theme are available [here](https://mega.nz/folder/6VByEKTS#I7yela1-PrAzneLCQkw1jg).
