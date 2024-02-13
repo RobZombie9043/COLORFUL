@@ -3,9 +3,10 @@
 ---
 A port of the COLORFUL bigbox theme to Pegasus.
 
-![CollectionDetails](.meta/screenshots/CollectionsWheel.png)
+![Video](https://youtu.be/O1Q5IVHPxeI)
+![CollectionWheel](.meta/screenshots/CollectionsWheel.png)
 ![CollectionDetails](.meta/screenshots/CollectionsDetails.png)
-![CollectionDetails](.meta/screenshots/GamesListView.png)
+![GameListView](.meta/screenshots/GamesListView.png)
 
 ---
 
