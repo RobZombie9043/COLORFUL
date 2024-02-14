@@ -32,6 +32,7 @@ Platform shortnames:
 ## Changelog:
 - 0.10 Initial release
 - 0.11 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
+- 0.12 Updated collections video and image sources to check against common platform shortname aliases to be less dependant on following exact naming convention, added Accept button options for A, B, cross (X) and circle (O) covering Xbox/Nintendo/PS layouts and regional variations
 
 This has only been tested on an AYN Odin 2 but reach out if anything is not working as expected or you have suggestions!
 
@@ -39,7 +40,7 @@ This has only been tested on an AYN Odin 2 but reach out if anything is not work
 
 ## To Do:
 - [x] Fall back images for no collection video
-- [ ] Add shortname alias function for image/video source references 
+- [x] Add shortname alias function for image/video source references 
 - [ ] Mark as favorite button
 - [ ] Add favorite icons to game views
 - [ ] Touch controls
