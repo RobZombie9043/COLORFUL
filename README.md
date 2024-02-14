@@ -32,7 +32,7 @@ Platform shortnames:
 ## Changelog:
 - 0.10 Initial release
 - 0.11 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
-- 0.12 Updated collections video and image sources to check against common platform shortname aliases to be less dependant on following exact naming convention, added Accept button options for A, B, cross (X) and circle (O) covering Xbox/Nintendo/PS layouts and regional variations
+- 0.12 Updated collections video and image sources to check against common platform shortname aliases to be less dependant on following exact naming convention, added Accept button options for A, B, cross (X) and circle (O) covering Xbox/Nintendo/PS layouts and regional variations, updated theme settings shortcut key to 'Filters' button (i.e. xbox Y, PS triangle)
 
 This has only been tested on an AYN Odin 2 but reach out if anything is not working as expected or you have suggestions!
 
@@ -53,11 +53,11 @@ This has only been tested on an AYN Odin 2 but reach out if anything is not work
 - [ ] Favorites filter
 - [ ] Favorites on top toggle
 - [ ] Fix game auto scroll on first transition to list view
+- [ ] Return to previous screen when closing settings
 
 ---
 
 ## Credits:
 - viking - creator of the [COLORFUL media set and theme](https://forums.launchbox-app.com/files/file/2081-colorful-bigbox-theme/)
 - Dan Patrick - [v2 Platform Logos](https://forums.launchbox-app.com/files/file/3402-v2-platform-logos-professionally-redrawn-official-versions-new-bigbox-defaults/page/2/?tab=comments#comment-12469)
-- All the Pegasus theme creators that I have borrowed ideas from especially [epic-memories-theme](https://github.com/FrenchGithubUser/epic-memories-theme), [retromega-sleipnir](https://github.com/TigraTT-Driver/shinretro) and [shinretro
-](https://github.com/y-muller/retromega-sleipnir)
+- All the Pegasus theme creators that I have borrowed ideas from especially [epic-memories-theme](https://github.com/FrenchGithubUser/epic-memories-theme), [retromega-sleipnir](https://github.com/y-muller/retromega-sleipnir) and [shinretro](https://github.com/TigraTT-Driver/shinretro)
