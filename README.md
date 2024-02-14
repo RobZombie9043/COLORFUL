@@ -11,10 +11,10 @@ A port of the COLORFUL bigbox theme to Pegasus.
 
 Video assets for the Collections pages **are required** to be downloaded separately (due to the size) or else there will only be static images. 
 
-1080P versions for many platforms (60+), renamed for this theme [are available here](https://mega.nz/folder/6VByEKTS#I7yela1-PrAzneLCQkw1jg).
+1080P versions for many platforms (60+), renamed for this theme are available as a separate zip with the release (~1gb) or can be [downloaded individually here](https://mega.nz/folder/6VByEKTS#I7yela1-PrAzneLCQkw1jg).
 Additional platforms can be found at the [creators page](https://forums.launchbox-app.com/files/file/1958-colorful-platform-video-set/).
 
-Collections must be named using the shortnames listed below to work properly or can be edited in the collectiondata.qml
+Collections must be named using the shortnames listed below (or some common variations) to work properly - these can be checked in the collectiondata.qml if videos and images are not loading for collections.
 
 Platform shortnames:
 3do, 3ds, amiga, android, arcade, atari2600, atari5200, atari7800, atarijaguar, atarilynx, atomiswave, c64, cdi, colecovision, cps1, cps2, cps3, dos, dreamcast, famicom, fbneo, fds, gamecube, gamegear, gb, gba, gbc, genesis, gw, intellivision, mame, mastersystem, msx, mvs, n64, naomi, nds, neogeo, neogeocd, nes, ngp, ngpc, odyssey2, pcecd, pcengine, pico8, pokemini, ps2, psp, psx, saturn, scummvm, sega32x, segacd, sfc, sg1000, snes, supergrafx, switch, tg16, tgcd, vboy, vectrex, vita, wii, wswan, wswanc, x68000, zxspectrum
