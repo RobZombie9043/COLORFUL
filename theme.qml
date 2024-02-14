@@ -112,10 +112,14 @@ FocusScope {
     }
 	
 	property string buttons: {
-        if (api.memory.get('buttons') == "PlayStation") {
-            return "../assets/images/icons/Colorful_PlatformWheel1_ButtonStart_PS.png"
+        if (api.memory.get('buttonsIndex') == "1") {
+            return "../assets/images/icons/Colorful_PlatformWheel1_ButtonStart_B.png";
+		} else if (api.memory.get('buttonsIndex') == "2") {
+            return "../assets/images/icons/Colorful_PlatformWheel1_ButtonStart_X.png";
+		} else if (api.memory.get('buttonsIndex') == "3") {
+            return "../assets/images/icons/Colorful_PlatformWheel1_ButtonStart_O.png";
         } else {
-            return "../assets/images/icons/Colorful_PlatformWheel1_ButtonStart_XBox.png"
+            return "../assets/images/icons/Colorful_PlatformWheel1_ButtonStart_A.png";
         }
     }
 	

@@ -90,8 +90,8 @@ FocusScope {
 					anchors.horizontalCenter: parent.horizontalCenter
 					fillMode: Image.PreserveAspectFit
 
-					source: "../assets/images/logos/" + logo + "/" + modelData.shortName + ".png" 
-
+					source: "../assets/images/logos/" + logo + "/" + collectiondata.getAlias(modelData.shortName) + ".png" 
+					
 					asynchronous: true
 					opacity: index === collectionAxis.currentIndex ? 1 : 0.3
 					
@@ -102,7 +102,7 @@ FocusScope {
 							collectionText.visible = false;
 						}
 					}
-
+					
 					MouseArea {											
 						anchors.fill: parent
 						onClicked: {
@@ -287,7 +287,7 @@ FocusScope {
 		anchors.topMargin: vpx(30)
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: vpx(30)
-		
+
 		Rectangle {
 			id: collectiondevicebg
 			
@@ -300,7 +300,7 @@ FocusScope {
 			
 			anchors.fill: parent
 			fillMode: Image.PreserveAspectFit
-			source: "../assets/images/devices/" + currentCollection.shortName + ".png"
+			source: "../assets/images/devices/" + collectiondata.getAlias(currentCollection.shortName) + ".png"
 		}
 		
 		Loader {
@@ -334,7 +334,7 @@ FocusScope {
 		transitions.state = "collectionSelection"
 	}
 
-	property string videoSource: "../assets/videos/devices/" + currentCollection.shortName + ".mp4"
+	property string videoSource: "../assets/videos/devices/" + collectiondata.getAlias(currentCollection.shortName) + ".mp4"
 
 	Timer {
 		id: videoDelay

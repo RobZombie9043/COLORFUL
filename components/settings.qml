@@ -34,7 +34,7 @@ FocusScope {
             [ "Games View",  "gamesview",  "",  "Wheel,List" ],
             [ "Theme Color",  "theme",  "",  "Dark,Light,OzoneDark,SteamOS,Black" ],
 			[ "Logo Variation",  "logo",  "",  "Dark - Color,Dark - Black,Light - Color,Light - White" ],
-			[ "Buttons",  "buttons",  "",  "Xbox/Nintendo,PlayStation" ],
+			[ "Accept Button",  "buttons",  "",  "A,B,X,O" ],
 			[ "Video Sounds",  "videosound",  "",  "Enabled,Disabled" ] //,
 			// [ "Favorites on top",  "favoritestop",  "(not yet done)",  "No,Yes" ]
 			
