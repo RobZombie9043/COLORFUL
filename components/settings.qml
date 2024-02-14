@@ -186,7 +186,7 @@ FocusScope {
                         nextSetting();
                         saveSetting();
                     }
-                    if (api.keys.isFilters(event) && !event.isAutoRepeat) {
+                    if (api.keys.isDetails(event) && !event.isAutoRepeat) {
                         event.accepted = true;
 						root.state = 'collections'
                     }

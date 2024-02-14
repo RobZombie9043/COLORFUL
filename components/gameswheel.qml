@@ -44,7 +44,7 @@ FocusScope {
 				root.state = 'collections'
 				event.accepted = true;
 			}
-			if (api.keys.isFilters(event))
+			if (api.keys.isDetails(event))
 			{
 				root.state = 'settings'
 				event.accepted = true;
