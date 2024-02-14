@@ -39,6 +39,7 @@ This has only been tested on an AYN Odin 2 but reach out if anything is not work
 
 ## To Do:
 - [x] Fall back images for no collection video
+- [ ] Add shortname alias function for image/video source references 
 - [ ] Mark as favorite button
 - [ ] Add favorite icons to game views
 - [ ] Touch controls
