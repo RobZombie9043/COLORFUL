@@ -44,6 +44,11 @@ FocusScope {
 				root.state = 'collections'
 				event.accepted = true;
 			}
+			if (api.keys.isFilters(event))
+			{
+				root.state = 'settings'
+				event.accepted = true;
+			}
 		}
 		
 		preferredHighlightBegin : height * 0.5
@@ -234,7 +239,7 @@ FocusScope {
 				NumberAnimation { target: dividerLeft; property: "opacity"; to: 0.3 ; duration: 0 }
 				NumberAnimation { target: dividerRight; property: "opacity"; to: 0.3 ; duration: 0 }
 				NumberAnimation { target: gameAxis; property: "opacity"; to: 1 ; duration: 0 }
-				NumberAnimation { target: gamescreenshotcontainer; property: "width"; to: 0; duration: 0 }
+				NumberAnimation { target: gamescreenshot; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: videocontainer; property: "width"; to: 0; duration: 0 }
 				NumberAnimation { target: scrollbuttonsContainer; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: gamecovercontainer; property: "opacity"; to: 0; duration: 0 }

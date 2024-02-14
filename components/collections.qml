@@ -39,7 +39,7 @@ FocusScope {
 				root.state = gamesview                       
 				event.accepted = true;
 			}
-			if (api.keys.isCancel(event))
+			if (api.keys.isFilters(event))
 			{
 				root.state = 'settings'
 				event.accepted = true;

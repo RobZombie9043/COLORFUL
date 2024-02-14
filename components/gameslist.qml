@@ -56,6 +56,11 @@ FocusScope {
 				root.state = 'collections'
 				event.accepted = true;
 			}
+			if (api.keys.isFilters(event))
+			{
+				root.state = 'settings'
+				event.accepted = true;
+			}
 		}
 		
 		preferredHighlightBegin : height * 0.5 - vpx(15)
