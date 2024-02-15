@@ -40,7 +40,7 @@ Platforms included:
 - [ ] Shortcut keys to move to start/end of list / skip letter
 - [ ] Nav sounds
 - [ ] Better color matching between videos and rendered text/shapes
-- [ ] Favorites filter
+- [x] Favorites filter
 - [ ] Favorites on top toggle
 - [ ] Fix game auto scroll on first transition to list view
 - [ ] Return to previous screen when closing settings
