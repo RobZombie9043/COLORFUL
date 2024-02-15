@@ -45,7 +45,7 @@ This has only been tested on an AYN Odin 2 but reach out if anything is not work
 - [x] Add favorite icons to game views
 - [ ] Touch controls
 - [ ] All/Favorites/Recents collections
-- [ ] Shortcut keys to change collection index from game view
+- [x] Shortcut keys to change collection index from game view
 - [ ] Shortcut keys to move to start/end of list / skip letter
 - [ ] Nav sounds
 - [ ] Better color matching between videos and rendered text/shapes
