@@ -41,11 +41,10 @@ This has only been tested on an AYN Odin 2 but reach out if anything is not work
 ## To Do:
 - [x] Fall back images for no collection video
 - [x] Add shortname alias function for image/video source references 
-- [ ] Mark as favorite button
-- [ ] Add favorite icons to game views
+- [x] Mark as favorite button
+- [x] Add favorite icons to game views
 - [ ] Touch controls
 - [ ] All/Favorites/Recents collections
-- [ ] Battery/clock
 - [ ] Shortcut keys to change collection index from game view
 - [ ] Shortcut keys to move to start/end of list / skip letter
 - [ ] Nav sounds
