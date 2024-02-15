@@ -33,6 +33,7 @@ FocusScope {
 	
 		focus:true
 		keyNavigationWraps: true	
+		
 		Keys.onPressed:{
 			if (api.keys.isAccept(event))
 			{
@@ -43,6 +44,13 @@ FocusScope {
 			{
 				root.state = 'settings'
 				event.accepted = true;
+			}
+			if (api.keys.isCancel(event))
+			{
+				if (transitions.state === 'collectionDetails') {
+				event.accepted = true;
+				transitions.state = 'collectionSelection';
+				}
 			}
 		}
 		

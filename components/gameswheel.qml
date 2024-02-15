@@ -42,8 +42,13 @@ FocusScope {
 			}
 			if (api.keys.isCancel(event))
 			{
+				if (transitions.state === 'gamesDetails') {
+				event.accepted = true;
+				transitions.state = 'gamesSelection';
+				} else {
 				event.accepted = true;
 				root.state = 'collections'
+				}
 			}
 			if (api.keys.isDetails(event))
 			{
