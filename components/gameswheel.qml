@@ -32,7 +32,8 @@ FocusScope {
 		anchors.right: parent.right
 		
 		focus:true
-		keyNavigationWraps: true		
+		keyNavigationWraps: true	
+		
 		Keys.onPressed:{
 			if (api.keys.isAccept(event))
 			{
@@ -55,6 +56,28 @@ FocusScope {
 				currentGame.favorite = !currentGame.favorite;
 			}
 		}
+		
+		Keys.onReleased: {
+			if (api.keys.isPageDown(event)) {
+				event.accepted = true;
+				if (currentCollectionIndex >= api.collections.count - 1) {
+					currentCollectionIndex = 0;
+				} else {
+					currentCollectionIndex++;
+				}
+				return;
+			}
+			
+			if (api.keys.isPageUp(event)) {
+				event.accepted = true;
+				if (currentCollectionIndex <= 0) {
+					currentCollectionIndex = api.collections.count - 1;;
+				} else {
+					currentCollectionIndex--;
+				}
+				return;
+			}
+        }
 		
 		preferredHighlightBegin : height * 0.5
 		preferredHighlightEnd: height * 0.5
