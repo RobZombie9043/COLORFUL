@@ -35,8 +35,7 @@ FocusScope {
             [ "Theme Color",  "theme",  "",  "Dark,Light,OzoneDark,SteamOS,Black" ],
 			[ "Logo Variation",  "logo",  "",  "Dark - Color,Dark - Black,Light - Color,Light - White" ],
 			[ "Accept Button",  "buttons",  "",  "A,B,Cross (X),Circle (O)" ],
-			[ "Video Sounds",  "videosound",  "",  "Enabled,Disabled" ] //,
-			// [ "Favorites on top",  "favoritestop",  "(not yet done)",  "No,Yes" ]
+			[ "Video Sounds",  "videosound",  "",  "Enabled,Disabled" ]
 			
             ].forEach(function(element) {
                 append({
@@ -185,6 +184,10 @@ FocusScope {
                         event.accepted = true;
                         nextSetting();
                         saveSetting();
+                    }
+					if (api.keys.isCancel(event) && !event.isAutoRepeat) {
+                        event.accepted = true;
+						root.state = 'collections'
                     }
                     if (api.keys.isDetails(event) && !event.isAutoRepeat) {
                         event.accepted = true;

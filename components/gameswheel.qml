@@ -36,18 +36,23 @@ FocusScope {
 		Keys.onPressed:{
 			if (api.keys.isAccept(event))
 			{
-				currentGame.launch()
 				event.accepted = true;
+				currentGame.launch()
 			}
 			if (api.keys.isCancel(event))
 			{
-				root.state = 'collections'
 				event.accepted = true;
+				root.state = 'collections'
 			}
 			if (api.keys.isDetails(event))
 			{
-				root.state = 'settings'
 				event.accepted = true;
+				root.state = 'settings'
+			}
+			if (api.keys.isFilters(event)) 
+			{
+				event.accepted = true;
+				currentGame.favorite = !currentGame.favorite;
 			}
 		}
 		
@@ -220,6 +225,8 @@ FocusScope {
 						NumberAnimation { target: gamereleaseContainer; property: "anchors.topMargin"; to: vpx(360) + vpx(10) + (summaryContentHeight > vpx(120) ? vpx(120) : summaryContentHeight) + vpx(10); duration: 500 }
 						NumberAnimation { target: ratingContainer; property: "opacity"; to: 1; duration: 500 }
 						NumberAnimation { target: ratingContainer; property: "anchors.topMargin"; to: vpx(360) + vpx(10) + (summaryContentHeight > vpx(120) ? vpx(120) : summaryContentHeight) + vpx(10); duration: 500 }		
+						NumberAnimation { target: favoriteiconContainer; property: "opacity"; to: 1; duration: 500 }
+						NumberAnimation { target: favoriteiconContainer; property: "anchors.topMargin"; to: parent.height / 2 - titleContentHeight - genreContentHeight - vpx(10) - vpx(30)- vpx(20); duration: 500 }		
 					}
 					ParallelAnimation { 
 						NumberAnimation { target: gamesummaryContainer; property: "opacity"; to: 1; duration: 500 }
@@ -262,6 +269,8 @@ FocusScope {
 				NumberAnimation { target: gamereleaseContainer; property: "anchors.topMargin"; to: vpx(360) + vpx(10) + (summaryContentHeight > vpx(120) ? vpx(120) : summaryContentHeight) + vpx(10) + vpx(20); duration: 0 }		
 				NumberAnimation { target: ratingContainer; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: ratingContainer; property: "anchors.topMargin"; to: vpx(360) + vpx(10) + (summaryContentHeight > vpx(120) ? vpx(120) : summaryContentHeight) + vpx(10) + vpx(20); duration: 0 }		
+				NumberAnimation { target: favoriteiconContainer; property: "opacity"; to: 0; duration: 0 }
+				NumberAnimation { target: favoriteiconContainer; property: "anchors.topMargin"; to: parent.height / 2 - titleContentHeight - genreContentHeight - vpx(10) - vpx(30); duration: 500 }		
 			}
 		]
 	}
@@ -325,7 +334,6 @@ FocusScope {
 
 		interval: 1500
 		onTriggered: {
-			// if (currentGame && videoSource && root.state === 'gameswheel')
 			if (currentGame && root.state === 'gameswheel')
 			{
 				videoPreviewLoader.sourceComponent = videoPreviewWrapper;
@@ -419,6 +427,31 @@ FocusScope {
 			anchors.top: parent.top
 			wrapMode: Text.Wrap
 			verticalAlignment : Text.AlignBottom
+		}
+	}
+	
+	Item {
+		id: favoriteiconContainer
+		width: vpx(30)
+		height: vpx(30)
+		anchors.left: parent.left
+		anchors.leftMargin: vpx(40)
+		anchors.top: parent.top
+		anchors.topMargin: parent.height / 2 - titleContentHeight - genreContentHeight - vpx(10) - vpx(30)- vpx(20)
+		opacity: 0
+			
+		Image {
+			id: favoriteicon
+			anchors.fill: parent
+			source: "../assets/images/icons/Colorful_IconFav.png"
+			opacity: currentGame.favorite
+		}
+		
+		ColorOverlay {
+			anchors.fill: favoriteicon
+			source: favoriteicon
+			color: colorScheme[theme].text
+			opacity: currentGame.favorite
 		}
 	}
 	
@@ -572,7 +605,7 @@ FocusScope {
 		
 		Text{
 			text: "Release"
-			color: colorScheme[theme].text //"gray"
+			color: colorScheme[theme].text
 			font.family: globalFonts.sans
 			font.pixelSize: vpx(15)
 			font.bold: true

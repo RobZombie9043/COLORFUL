@@ -48,18 +48,23 @@ FocusScope {
 		Keys.onPressed:{
 			if (api.keys.isAccept(event))
 			{
-				currentGame.launch()
 				event.accepted = true;
+				currentGame.launch()
 			}
 			if (api.keys.isCancel(event))
 			{
-				root.state = 'collections'
 				event.accepted = true;
+				root.state = 'collections'
 			}
 			if (api.keys.isDetails(event))
 			{
-				root.state = 'settings'
 				event.accepted = true;
+				root.state = 'settings'
+			}
+			if (api.keys.isFilters(event)) 
+			{
+				event.accepted = true;
+				currentGame.favorite = !currentGame.favorite;
 			}
 		}
 		
@@ -113,7 +118,7 @@ FocusScope {
 		Image {
 			id: gamecover									
 			width: vpx(392)
-			height: parent.height - vpx(80)
+			height: parent.height - vpx(120)
 			fillMode: Image.PreserveAspectFit
 			source: currentGame.assets.boxFront
 			asynchronous: true
@@ -121,6 +126,25 @@ FocusScope {
 			anchors.left: parent.left
 			anchors.leftMargin: vpx(282)
 			anchors.verticalCenter: parent.verticalCenter
+		}
+		
+		Image {
+			id: favoriteicon
+			width: vpx(30)
+			height: vpx(30)
+			anchors.left: gamecover.left
+			anchors.leftMargin: gamecover.width/2
+			anchors.bottom: parent.bottom 
+			anchors.bottomMargin: (vpx(720) - gamecover.paintedHeight)/2 - vpx (40)
+			opacity: currentGame.favorite
+			source: "../assets/images/icons/Colorful_IconFav.png"
+		}
+		
+		ColorOverlay {
+			anchors.fill: favoriteicon
+			source: favoriteicon
+			color: colorScheme[theme].text
+			opacity: currentGame.favorite
 		}
 	}
 	
@@ -313,7 +337,6 @@ FocusScope {
 			property var aspectratio: metaData.resolution.width / metaData.resolution.height
 			
 			width: parent.height * aspectratio
-			// width: parent.height * aspectratio <= vpx(364) ? vpx(364) : parent.height * aspectratio
 			height: parent.height
 			anchors.left: parent.left
 			anchors.bottom: parent.bottom
