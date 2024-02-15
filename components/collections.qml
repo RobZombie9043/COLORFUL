@@ -37,13 +37,15 @@ FocusScope {
 		Keys.onPressed:{
 			if (api.keys.isAccept(event))
 			{
+				event.accepted = true;
+				gameslist.currentGameIndex = 0;
+				gameswheel.currentGameIndex = 0;
 				root.state = gamesview                       
-				event.accepted = true;
 			}
-			if (api.keys.isDetails(event))
+			if (event.key == 1048586)
 			{
-				root.state = 'settings'
 				event.accepted = true;
+				root.state = 'settings'
 			}
 			if (api.keys.isCancel(event))
 			{

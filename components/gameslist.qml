@@ -2,16 +2,16 @@ import QtQuick 2.6
 import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 import "qrc:/qmlutils" as PegasusUtils
+import SortFilterProxyModel 0.2
 
 FocusScope {
     id: gameslist
 	
-	property var currentGame: currentCollection.games.get(gameListView.currentIndex)
 	property var titleContentHeight: gameTitle.contentHeight
 	property var rating: (currentGame.rating * 5).toFixed(1)
-	property string state: root.state
 	property bool playing: false
-	
+	property bool favoritesFiltered: false
+		
 	Rectangle {												
 		width: vpx(576)   
 		height: parent.height
@@ -31,7 +31,7 @@ FocusScope {
 	ListView {												
 		id: gameListView
 		
-		model: currentCollection.games
+		model: favoritesProxyModel
 		delegate: gameListViewDelegate
 		
 		width: vpx(282)
@@ -59,12 +59,12 @@ FocusScope {
 			if (api.keys.isDetails(event))
 			{
 				event.accepted = true;
-				root.state = 'settings'
+				currentGame.favorite = !currentGame.favorite;
 			}
 			if (api.keys.isFilters(event)) 
 			{
 				event.accepted = true;
-				currentGame.favorite = !currentGame.favorite;
+				favoritesFiltered = !favoritesFiltered
 			}
 		}
 		
@@ -93,6 +93,9 @@ FocusScope {
 		preferredHighlightBegin : height * 0.5 - vpx(15)
 		preferredHighlightEnd: height * 0.5 + vpx(15)
 		
+		currentIndex: currentGameIndex
+        onCurrentIndexChanged: currentGameIndex = currentIndex
+		
 		highlightRangeMode: ListView.ApplyRange
 		highlightMoveDuration: 0
 		highlight: highlight
@@ -102,7 +105,7 @@ FocusScope {
 
 			Text {
 				text: ListView.isCurrentItem ? "\u25BA" + modelData.title : modelData.title
-				color: ListView.isCurrentItem ? collectiondata.getColor(currentCollection.shortName) : colorScheme[theme].background //"white"
+				color: ListView.isCurrentItem ? collectiondata.getColor(currentCollection.shortName) : colorScheme[theme].background
 				font.family: globalFonts.sans
 				font.pixelSize: ListView.isCurrentItem ? vpx(20) : vpx(15)
 				font.bold: true
@@ -111,7 +114,7 @@ FocusScope {
 				height: ListView.isCurrentItem ? vpx(31) : vpx(29)
 				leftPadding: ListView.isCurrentItem ? vpx(30) : vpx(45)
 				verticalAlignment: Text.AlignVCenter
-				elide: Text.ElideRight
+				elide: Text.ElideRight			
 
 				MouseArea {											
 					anchors.fill: parent
@@ -136,6 +139,7 @@ FocusScope {
 	Item {
 		id: gamecovercontainer
 		anchors.fill: parent
+		visible: currentGame !== null
 		
 		Image {
 			id: gamecover									
@@ -158,6 +162,7 @@ FocusScope {
 		anchors.leftMargin: vpx(734)
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: vpx(513) + titleContentHeight + vpx(10)
+		visible: currentGame !== null
 				
 		Text {
 			id: genre
@@ -182,6 +187,7 @@ FocusScope {
 		anchors.leftMargin: vpx(734)
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: vpx(513)
+		visible: currentGame !== null
 				
 		Text {
 			id: gameTitle
@@ -206,6 +212,7 @@ FocusScope {
 		anchors.bottomMargin: vpx(485)
 		anchors.left: parent.left
 		anchors.leftMargin: vpx(734)
+		visible: currentGame !== null
 		
 		Image {
 			id: ratingstars
@@ -234,6 +241,7 @@ FocusScope {
 		anchors.bottomMargin: vpx(330)
 		anchors.left: parent.left
 		anchors.leftMargin: vpx(734)
+		visible: currentGame !== null
 		
 		PegasusUtils.AutoScroll {												
             id: scrollArea
@@ -266,6 +274,7 @@ FocusScope {
 		anchors.leftMargin: vpx(734)		
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: vpx(40)
+		visible: currentGame !== null
 		
 		Image {
 			id: gamescreenshot
@@ -287,6 +296,7 @@ FocusScope {
 		anchors.leftMargin: vpx(734)		
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: vpx(40)
+		visible: currentGame !== null
 	
 		Loader {
 			id: videoPreviewLoader
@@ -405,6 +415,7 @@ FocusScope {
 			anchors.leftMargin: vpx(1128)	
 			anchors.bottom: parent.bottom
 			anchors.bottomMargin: vpx(485)
+			visible: currentGame !== null
 		
 		Text {
 			id: gameYear
@@ -426,6 +437,7 @@ FocusScope {
 			anchors.leftMargin: vpx(1128)	
 			anchors.top: parent.top
 			anchors.topMargin: vpx(255)
+			visible: currentGame !== null
 		
 		Text {
 			id: gamePlayers
@@ -459,5 +471,52 @@ FocusScope {
 	
 	function playerCountText(count) {
         return count === 1 ? "1 Player" : count + " Players";
+    }
+	
+	Item {
+		property alias favoritesModel: favoritesProxyModel
+	
+		SortFilterProxyModel {
+            id: favoritesProxyModel
+            sourceModel: currentCollection.games 
+            filters: ValueFilter { roleName: "favorite"; value: true; enabled: favoritesFiltered }
+        }
+	}
+	
+	function findCurrentGameFromProxy(idx, collection) {
+        return currentCollection.games.get(favoritesProxyModel.mapToSource(idx))
+    }
+	
+	property int currentGameIndex: 0
+    property var currentGame: {
+        if (gameListView.count === 0) 
+            return null;
+		return findCurrentGameFromProxy(currentGameIndex, currentCollection);
+	}
+	
+	Item {															
+		id: nogamesContainer
+			anchors.left: parent.left
+			anchors.top: parent.top
+			anchors.topMargin: vpx(115)
+			anchors.leftMargin: vpx(30)
+		
+			visible: currentGame == null && (gameslist.state === "filtered")
+		
+		Text {
+			id: nogames
+			
+			text: "No games available for current filter"
+			color: colorScheme[theme].text
+			font.family: globalFonts.sans
+			font.pixelSize: vpx(30)
+			font.bold: true
+		}
+	}
+	
+	state: {
+        if (!favoritesFiltered)
+            return "unfiltered"
+        else return "filtered"
     }
 }

@@ -189,7 +189,7 @@ FocusScope {
                         event.accepted = true;
 						root.state = 'collections'
                     }
-                    if (api.keys.isDetails(event) && !event.isAutoRepeat) {
+                    if (event.key == 1048586 && !event.isAutoRepeat) {
                         event.accepted = true;
 						root.state = 'collections'
                     }

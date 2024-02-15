@@ -2,17 +2,17 @@ import QtQuick 2.3
 import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 import "qrc:/qmlutils" as PegasusUtils
+import SortFilterProxyModel 0.2
 
 FocusScope {
     id: gameswheel
 	
-	property var currentGame: currentCollection.games.get(gameAxis.currentIndex)
 	property var titleContentHeight: gameTitle.contentHeight
 	property var genreContentHeight: genre.contentHeight
 	property var summaryContentHeight: gameSummary.contentHeight
 	property var rating: (currentGame.rating * 5).toFixed(1)
-	property string state: root.state
 	property bool playing: false
+	property bool favoritesFiltered: false
 		
 	Rectangle {												
 		width: parent.width
@@ -24,7 +24,7 @@ FocusScope {
 	ListView {											
 		id: gameAxis
 		
-		model: currentCollection.games
+		model: favoritesProxyModel
 		delegate: gameAxisDelegate
 		
 		width: parent.width / 3
@@ -53,12 +53,12 @@ FocusScope {
 			if (api.keys.isDetails(event))
 			{
 				event.accepted = true;
-				root.state = 'settings'
+				currentGame.favorite = !currentGame.favorite;
 			}
 			if (api.keys.isFilters(event)) 
 			{
 				event.accepted = true;
-				currentGame.favorite = !currentGame.favorite;
+				favoritesFiltered = !favoritesFiltered
 			}
 		}
 		
@@ -86,6 +86,9 @@ FocusScope {
 		
 		preferredHighlightBegin : height * 0.5
 		preferredHighlightEnd: height * 0.5
+		
+		currentIndex: currentGameIndex
+        onCurrentIndexChanged: currentGameIndex = currentIndex
 		
 		spacing: vpx(144);
 		
@@ -147,6 +150,7 @@ FocusScope {
 				anchors.right: parent.right
 				anchors.rightMargin: vpx(640)
 				anchors.verticalCenter: parent.verticalCenter
+				visible: currentGame !== null
 
 				
 			Text {
@@ -173,6 +177,7 @@ FocusScope {
 				width: parent.width * 1/6
 				anchors.right: parent.right
 				anchors.verticalCenter: parent.verticalCenter
+				visible: currentGame !== null
 
 				
 			Text {
@@ -199,6 +204,7 @@ FocusScope {
 			anchors.verticalCenter: parent.verticalCenter
 			color: colorScheme[theme].text 
 			opacity: 0.3
+			visible: currentGame !== null
 		}
 		
 		Rectangle {											
@@ -210,6 +216,7 @@ FocusScope {
 			anchors.verticalCenter: parent.verticalCenter
 			color: colorScheme[theme].text 
 			opacity: 0.3
+			visible: currentGame !== null
 		}
 
 	Item {
@@ -727,4 +734,51 @@ FocusScope {
 			source: "../assets/images/icons/Colorful_PlatformWheel_Arrows_Vertical_type2.gif"
 		}
 	}
+	
+	Item {
+		property alias favoritesModel: favoritesProxyModel
+	
+		SortFilterProxyModel {
+            id: favoritesProxyModel
+            sourceModel: currentCollection.games 
+            filters: ValueFilter { roleName: "favorite"; value: true; enabled: favoritesFiltered }
+        }
+	}
+	
+	function findCurrentGameFromProxy(idx, collection) {
+        return currentCollection.games.get(favoritesProxyModel.mapToSource(idx))
+    }
+	
+	property int currentGameIndex: 0
+    property var currentGame: {
+        if (gameAxis.count === 0)
+            return null;
+        return findCurrentGameFromProxy(currentGameIndex, currentCollection);
+    }
+	
+	Item {															
+		id: nogamesContainer
+			anchors.left: parent.left
+			anchors.top: parent.top
+			anchors.topMargin: vpx(115)
+			anchors.leftMargin: vpx(30)
+		
+			visible: currentGame == null && (gameswheel.state === "filtered")
+		
+		Text {
+			id: nogames
+			
+			text: "No games available for current filter"
+			color: colorScheme[theme].text
+			font.family: globalFonts.sans
+			font.pixelSize: vpx(30)
+			font.bold: true
+		}
+	}
+	
+	state: {
+        if (!favoritesFiltered)
+            return "unfiltered"
+        else return "filtered"
+    }
 }
