@@ -149,25 +149,6 @@ FocusScope {
 			anchors.leftMargin: vpx(282)
 			anchors.verticalCenter: parent.verticalCenter
 		}
-		
-		Image {
-			id: favoriteicon
-			width: vpx(30)
-			height: vpx(30)
-			anchors.left: gamecover.left
-			anchors.leftMargin: gamecover.width/2
-			anchors.bottom: parent.bottom 
-			anchors.bottomMargin: (vpx(720) - gamecover.paintedHeight)/2 - vpx (40)
-			opacity: currentGame.favorite
-			source: "../assets/images/icons/Colorful_IconFav.png"
-		}
-		
-		ColorOverlay {
-			anchors.fill: favoriteicon
-			source: favoriteicon
-			color: colorScheme[theme].text
-			opacity: currentGame.favorite
-		}
 	}
 	
 	Item {
@@ -385,6 +366,36 @@ FocusScope {
 				NumberAnimation { target: gamescreenshot; property: "opacity"; to: 1 ; duration: 0 }
 			}
 		]
+	}
+	
+	Item {
+		id: favoriteiconContainer
+		
+		width: vpx(30)
+		height: vpx(30)
+		anchors.left: parent.left
+		anchors.leftMargin: vpx(1128)
+		anchors.bottom: parent.bottom
+		anchors.bottomMargin: vpx(520)
+	
+		Image {
+			id: favoriteicon
+			
+			anchors.bottom: parent.bottom
+			anchors.left: parent.left
+			verticalAlignment : Image.AlignBottom
+			width: vpx(30)
+			height: vpx(30)
+			opacity: currentGame.favorite
+			source: "../assets/images/icons/Colorful_IconFav.png"
+		}
+		
+		ColorOverlay {
+			anchors.fill: favoriteicon
+			source: favoriteicon
+			color: colorScheme[theme].text
+			opacity: currentGame.favorite
+		}
 	}
 	
 	Item {														
