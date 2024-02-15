@@ -124,11 +124,6 @@ Item {
 		'nintendo game boy color': 'gbc',
 		'gameboy color': 'gbc',
 		'nintendo gameboy color': 'gbc',
-		// 'md': 'genesis',						
-        // 'megadrive': 'genesis',					
-		// 'mega drive': 'genesis',
-		// 'sega megadrive': 'genesis',
-		// 'sega mega drive': 'genesis',			
 		'sega genesis': 'genesis',   
         'Genesis/Mega Drive': 'genesis',   
         'gameandwatch': 'gw',
@@ -140,6 +135,7 @@ Item {
 		'master system': 'mastersystem',
 		'md': 'megadrive',
 		'sega megadrive': 'megadrive',
+		'mega drive': 'megadrive',
 		'sega mega drive': 'megadrive',
 		'msx2': 'msx',
         'msx2+': 'msx',
@@ -257,7 +253,6 @@ Item {
         'wonderswancolor': 'wswanc',
         'x68k': 'x68000',
 		'sinclair zx spectrum': 'zxspectrum',
-              
     }
 
     property var metadata: {
