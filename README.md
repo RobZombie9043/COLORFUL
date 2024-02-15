@@ -17,7 +17,7 @@ Additional platforms can be found at the [creators page](https://forums.launchbo
 Collections must be named using the shortnames listed below (or some common variations) to work properly - these can be checked in the collectiondata.qml if videos and images are not loading for collections.
 
 Platforms included:
-3do, 3ds, amiga, android, arcade, atari2600, atari5200, atari7800, atarijaguar, atarilynx, atomiswave, c64, cdi, colecovision, cps1, cps2, cps3, dos, dreamcast, famicom, fbneo, fds, gamecube, gamegear, gb, gba, gbc, genesis, gw, intellivision, mame, mastersystem, msx, mvs, n64, naomi, nds, neogeo, neogeocd, nes, ngp, ngpc, odyssey2, pcecd, pcengine, pico8, pokemini, ps2, psp, psx, saturn, scummvm, sega32x, segacd, sfc, sg1000, snes, supergrafx, switch, tg16, tgcd, vboy, vectrex, vita, wii, wswan, wswanc, x68000, zxspectrum
+3do, 3ds, amiga, android, arcade, atari2600, atari5200, atari7800, atarijaguar, atarilynx, atomiswave, c64, cdi, colecovision, cps1, cps2, cps3, dos, dreamcast, famicom, fbneo, fds, gamecube, gamegear, gb, gba, gbc, genesis, gw, intellivision, mame, mastersystem, megadrive, msx, mvs, n64, naomi, nds, neogeo, neogeocd, nes, ngp, ngpc, odyssey2, pcecd, pcengine, pico8, pokemini, ps2, psp, psx, saturn, scummvm, sega32x, segacd, sfc, sg1000, snes, supergrafx, switch, tg16, tgcd, vboy, vectrex, vita, wii, wswan, wswanc, x68000, zxspectrum
 
 ---
 
@@ -26,15 +26,6 @@ Platforms included:
 - `screenshot`
 - `wheel`
 - `video`
-
----
-
-## Changelog:
-- 0.1.0 Initial release
-- 0.1.1 Added device images and fallback for when no collection videos exist, fixed loading of game screenshots in game wheel view when no game video exists
-- 0.1.2 Updated collections video and image sources to check against common platform shortname aliases to be less dependant on following exact naming convention, added Accept button options for A, B, cross (X) and circle (O) covering Xbox/Nintendo/PS layouts and regional variations, updated theme settings shortcut key to 'Details' button (i.e. xbox Y, PS triangle)
-
-This has only been tested on an AYN Odin 2 but reach out if anything is not working as expected, you have suggestions or would like any other systems added!
 
 ---
 
