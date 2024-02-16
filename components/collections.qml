@@ -7,7 +7,7 @@ import SortFilterProxyModel 0.2
 FocusScope {
     id: collections
 	
-	property var currentCollection: api.collections.get(collectionAxis.currentIndex)
+	property var currentCollection: allCollections[currentCollectionIndex]
 	property var titleContentHeight: collectionTitle.contentHeight
 	property var vendorYearContentHeight: vendorYear.contentHeight
 	property var summaryContentHeight: collectionSummary.contentHeight
@@ -24,7 +24,7 @@ FocusScope {
 	ListView {												
 		id: collectionAxis
 		
-		model: api.collections
+		model: allCollections
 		delegate: collectionAxisDelegate
 		
 		width: parent.width / 3
@@ -66,7 +66,7 @@ FocusScope {
 		
 		spacing: vpx(144);
 		
-		snapMode: ListView.SnapOneItem
+		snapMode: ListView.SnapToItem
 		highlightRangeMode: ListView.StrictlyEnforceRange
 		highlightMoveDuration: 200
 		
@@ -212,6 +212,7 @@ FocusScope {
 						NumberAnimation { target: videocontainer; property: "anchors.leftMargin"; to: vpx(520); duration: 500 }
 					}
 					ParallelAnimation {
+						NumberAnimation { target: collectiondeviceimage; property: "opacity"; to: 1; duration: 0 }
 						NumberAnimation { target: scrollbuttonsContainer; property: "opacity"; to: 1; duration: 0 }
 						NumberAnimation { target: vendoryearContainer; property: "opacity"; to: 1; duration: 500 }
 						NumberAnimation { target: vendoryearContainer; property: "anchors.leftMargin"; to: vpx(40); duration: 500 }
@@ -263,7 +264,8 @@ FocusScope {
 				NumberAnimation { target: dividerRight; property: "opacity"; to: 0.3 ; duration: 0 }
 				NumberAnimation { target: collectionAxis; property: "opacity"; to: 1 ; duration: 0 }
 				NumberAnimation { target: videocontainer; property: "width"; to: 0; duration: 0 }
-				NumberAnimation { target: videocontainer; property: "anchors.leftMargin"; to: vpx(30); duration: 0 }
+				NumberAnimation { target: videocontainer; property: "anchors.leftMargin"; to: vpx(0); duration: 0 }
+				NumberAnimation { target: collectiondeviceimage; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: scrollbuttonsContainer; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: collectiontitleContainer; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: collectiontitleRectangle; property: "opacity"; to: 0; duration: 0 }
@@ -297,7 +299,7 @@ FocusScope {
 		width: parent.width * 0
 		height: parent.height
 		anchors.left: parent.left
-		anchors.leftMargin: vpx(40)		
+		anchors.leftMargin: vpx(0)		
 		anchors.top: parent.top
 		anchors.topMargin: vpx(30)
 		anchors.bottom: parent.bottom
@@ -316,6 +318,7 @@ FocusScope {
 			anchors.fill: parent
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/images/devices/" + collectiondata.getAlias(currentCollection.shortName) + ".png"
+			opacity: 0
 		}
 		
 		Loader {

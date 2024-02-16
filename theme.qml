@@ -1,12 +1,13 @@
 import QtQuick 2.0
 import QtMultimedia 5.15
 import "components"
+import SortFilterProxyModel 0.2
+
 
 FocusScope {
     id: root
 
     property int currentCollectionIndex: 0
-    property var currentCollection: api.collections.get(currentCollectionIndex)
     property string state: 'collections' 
 
     Collections{
@@ -130,5 +131,43 @@ FocusScope {
             return false
 		}
 	}
+
+	property int allGamesCollection: api.memory.get('allGamesCollectionIndex') || 0
+    property int favoritesCollection: api.memory.get('favoritesCollectionIndex') || 0
+    property int lastPlayedCollection: api.memory.get('lastPlayedCollectionIndex') || 0
+	
+	property var allCollections: {
+        var collections = api.collections.toVarArray()
+        if (favoritesCollection !== 1) {
+            collections.unshift({"name": "Favorites", "shortName": "favorites", "games": allFavorites });
+        }
+        if (lastPlayedCollection !== 1) {
+            collections.unshift({"name": "Last Played", "shortName": "lastplayed", "games": lastPlayed });
+        }
+        if (allGamesCollection !== 1) {
+            collections.unshift({"name": "All Games", "shortName": "allgames", "games": api.allGames });
+        }
+        return collections
+    }
+	
+	property var currentCollection: allCollections[currentCollectionIndex]
+	
+	SortFilterProxyModel {
+        id: allFavorites
+        sourceModel: api.allGames
+        filters: ValueFilter { roleName: "favorite"; value: true; }
+    }
+
+    SortFilterProxyModel {
+        id: lastPlayedBase
+        sourceModel: api.allGames
+        sorters: RoleSorter { roleName: "lastPlayed"; sortOrder: Qt.DescendingOrder; }
+    }
+
+    SortFilterProxyModel {
+        id: lastPlayed
+        sourceModel: lastPlayedBase
+        filters: IndexFilter { maximumIndex: 49; }
+    }
 }
 

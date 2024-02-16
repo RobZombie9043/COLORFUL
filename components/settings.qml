@@ -35,7 +35,11 @@ FocusScope {
             [ "Theme Color",  "theme",  "",  "Dark,Light,OzoneDark,SteamOS,Black" ],
 			[ "Logo Variation",  "logo",  "",  "Dark - Color,Dark - Black,Light - Color,Light - White" ],
 			[ "Accept Button",  "buttons",  "",  "A,B,Cross (X),Circle (O)" ],
-			[ "Video Sounds",  "videosound",  "",  "Enabled,Disabled" ]
+			[ "Video Sounds",  "videosound",  "",  "Enabled,Disabled" ],
+			[ "Show All Games", "allGamesCollection", "", "Yes,No" ],
+			[ "Show Favorites", "favoritesCollection", "", "Yes,No" ],
+			[ "Show Last Played", "lastPlayedCollection", "", "Yes,No" ]
+			
 			
             ].forEach(function(element) {
                 append({
