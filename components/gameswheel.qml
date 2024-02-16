@@ -24,7 +24,7 @@ FocusScope {
 	ListView {											
 		id: gameAxis
 		
-		model: favoritesProxyModel
+		model: filteredGames
 		delegate: gameAxisDelegate
 		
 		width: parent.width / 3
@@ -740,20 +740,37 @@ FocusScope {
 			source: "../assets/images/icons/Colorful_PlatformWheel_Arrows_Vertical_type2.gif"
 		}
 	}
-	
+
 	Item {
-		property alias favoritesModel: favoritesProxyModel
-	
 		SortFilterProxyModel {
-            id: favoritesProxyModel
-            sourceModel: currentCollection.games 
+            id: filteredGames
+            sourceModel: currentCollection.games
             filters: ValueFilter { roleName: "favorite"; value: true; enabled: favoritesFiltered }
         }
+		
+		SortFilterProxyModel {
+            id: allFavoritesFiltered
+            sourceModel: api.allGames 
+            filters: ValueFilter { roleName: "favorite"; value: true }
+        }
+		
+		SortFilterProxyModel {
+            id: lastPlayedFiltered
+            sourceModel: api.allGames 
+			sorters: RoleSorter { roleName: "lastPlayed"; sortOrder: Qt.DescendingOrder; }
+            filters: ValueFilter { roleName: "favorite"; value: true; enabled: favoritesFiltered }
+		}
 	}
-	
-	function findCurrentGameFromProxy(idx, collection) {
-        return currentCollection.games.get(favoritesProxyModel.mapToSource(idx))
-    }
+
+   function findCurrentGameFromProxy(idx, collection) {
+        if (collection.shortName == "lastplayed") {
+            return api.allGames.get(lastPlayedFiltered.mapToSource(idx));
+        } else if (collection.shortName == "favorites") {
+            return api.allGames.get(allFavoritesFiltered.mapToSource(idx));
+        } else {
+            return currentCollection.games.get(filteredGames.mapToSource(idx))
+        }
+    }	
 	
 	property int currentGameIndex: 0
     property var currentGame: {
