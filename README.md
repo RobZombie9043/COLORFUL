@@ -43,7 +43,7 @@ Platforms included:
 - [x] Favorites filter
 - [ ] Favorites on top toggle
 - [ ] Fix game auto scroll on first transition to list view
-- [ ] Return to previous screen when closing settings
+- [x] Return to previous screen when closing settings
 
 ---
 
