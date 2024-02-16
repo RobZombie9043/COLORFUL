@@ -42,6 +42,11 @@ FocusScope {
 				gameswheel.currentGameIndex = 0;
 				root.state = gamesview                       
 			}
+			if (api.keys.isDetails(event))
+			{
+				event.accepted = true;
+				root.state = 'settings'
+			}
 			if (event.key == 1048586)
 			{
 				event.accepted = true;
