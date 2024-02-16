@@ -405,7 +405,7 @@ FocusScope {
 			fillMode: VideoOutput.PreserveAspectCrop
 			loops: MediaPlayer.Infinite
 			autoPlay: true
-			visible: videoSource
+			visible: videoSource && videoplay
 			muted: videosound
 		}
 	}

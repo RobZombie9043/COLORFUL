@@ -131,6 +131,14 @@ FocusScope {
             return false
 		}
 	}
+	
+	property bool videoplay: {
+        if (api.memory.get('videoplay') == "Enabled") {
+            return true;
+        } else {
+            return false
+		}
+	}
 
 	property int allGamesCollection: api.memory.get('allGamesCollectionIndex') || 0
     property int favoritesCollection: api.memory.get('favoritesCollectionIndex') || 0

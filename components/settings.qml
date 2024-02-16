@@ -35,7 +35,8 @@ FocusScope {
             [ "Theme Color",  "theme",  "",  "Dark,Light,OzoneDark,SteamOS,Black" ],
 			[ "Logo Variation",  "logo",  "",  "Dark - Color,Dark - Black,Light - Color,Light - White" ],
 			[ "Accept Button",  "buttons",  "",  "A,B,Cross (X),Circle (O)" ],
-			[ "Video Sounds",  "videosound",  "",  "Enabled,Disabled" ],
+			[ "Play Videos",  "videoplay",  "",  "Enabled,Disabled" ],
+			[ "Play Video Sounds",  "videosound",  "",  "Enabled,Disabled" ],
 			[ "Show All Games", "allGamesCollection", "", "Yes,No" ],
 			[ "Show Favorites", "favoritesCollection", "", "Yes,No" ],
 			[ "Show Last Played", "lastPlayedCollection", "", "Yes,No" ]
@@ -52,7 +53,7 @@ FocusScope {
         }
     }
 
-    property real itemheight: vpx(60)
+    property real itemheight: vpx(50)
 
     ListView {
         id: settingsList
