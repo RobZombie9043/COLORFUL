@@ -35,7 +35,7 @@ Platforms included:
 - [x] Mark as favorite button
 - [x] Add favorite icons to game views
 - [ ] Touch controls
-- [ ] All/Favorites/Recents collections
+- [x] All/Favorites/Recents collections
 - [x] Shortcut keys to change collection index from game view
 - [ ] Shortcut keys to move to start/end of list / skip letter
 - [ ] Nav sounds
