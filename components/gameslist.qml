@@ -66,6 +66,12 @@ FocusScope {
 				event.accepted = true;
 				favoritesFiltered = !favoritesFiltered
 			}
+			if (event.key == 1048586)
+			{
+				event.accepted = true;
+				api.memory.set('prevView', gamesview);
+				root.state = 'settings'
+			}
 		}
 		
 		Keys.onReleased: {

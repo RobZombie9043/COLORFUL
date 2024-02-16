@@ -187,11 +187,19 @@ FocusScope {
                     }
 					if (api.keys.isCancel(event) && !event.isAutoRepeat) {
                         event.accepted = true;
-						root.state = 'collections'
+						if (api.memory.has('prevView')) {     
+							root.state = gamesview;
+							api.memory.unset('prevView') }
+						else									
+							root.state = 'collections'
                     }
                     if (event.key == 1048586 && !event.isAutoRepeat) {
                         event.accepted = true;
-						root.state = 'collections'
+						if (api.memory.has('prevView')) {     
+							root.state = gamesview;
+							api.memory.unset('prevView') }
+						else									
+							root.state = 'collections'
                     }
                 }
             }
