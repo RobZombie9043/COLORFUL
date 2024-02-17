@@ -35,12 +35,12 @@ FocusScope {
             [ "Theme Color",  "theme",  "",  "Dark,Light,OzoneDark,SteamOS,Black,LightGray" ],
 			[ "Logo Variation",  "logo",  "",  "Dark - Color,Dark - Black,Light - Color,Light - White" ],
 			[ "Accept Button",  "buttons",  "",  "A,B,Cross (X),Circle (O)" ],
-			[ "Play Videos on Collections",  "videoplaycollections",  "",  "Enabled,Disabled" ],
-			[ "Play Videos on Games",  "videoplaygames",  "",  "Enabled,Disabled" ],
+			[ "Play Videos on Collections View",  "videoplaycollections",  "",  "Enabled,Disabled" ],
+			[ "Play Videos on Games View",  "videoplaygames",  "",  "Enabled,Disabled" ],
 			[ "Play Video Sounds",  "videosound",  "",  "Enabled,Disabled" ],
-			[ "Show All Games", "allGamesCollection", "", "Yes,No" ],
-			[ "Show Favorites", "favoritesCollection", "", "Yes,No" ],
-			[ "Show Last Played", "lastPlayedCollection", "", "Yes,No" ]
+			[ "Show All Games Playlist", "allGamesCollection", "", "Yes,No" ],
+			[ "Show Favorites Playlist", "favoritesCollection", "", "Yes,No" ],
+			[ "Show Last Played Playlist", "lastPlayedCollection", "", "Yes,No" ]
 			
 			
             ].forEach(function(element) {
