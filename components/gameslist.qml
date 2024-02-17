@@ -339,7 +339,7 @@ FocusScope {
 
 		interval: 1000
 		onTriggered: {
-			if (currentGame && videoSource && videoplay && root.state === 'gameslist')
+			if (currentGame && videoSource && videoplaygames && root.state === 'gameslist')
 			{
 				videoPreviewLoader.sourceComponent = videoPreviewWrapper;
 				transitions.state = "videoloaded";
@@ -364,7 +364,7 @@ FocusScope {
 			fillMode: VideoOutput.PreserveAspectFit
 			loops: MediaPlayer.Infinite
 			autoPlay: true
-			visible: videoSource && videoplay
+			visible: videoSource
 			muted: videosound
 		}
 	}

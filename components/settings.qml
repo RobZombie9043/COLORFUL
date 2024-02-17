@@ -32,10 +32,11 @@ FocusScope {
 		Component.onCompleted: {
             [
             [ "Games View",  "gamesview",  "",  "Wheel,List" ],
-            [ "Theme Color",  "theme",  "",  "Dark,Light,OzoneDark,SteamOS,Black" ],
+            [ "Theme Color",  "theme",  "",  "Dark,Light,OzoneDark,SteamOS,Black,LightGray" ],
 			[ "Logo Variation",  "logo",  "",  "Dark - Color,Dark - Black,Light - Color,Light - White" ],
 			[ "Accept Button",  "buttons",  "",  "A,B,Cross (X),Circle (O)" ],
-			[ "Play Videos",  "videoplay",  "",  "Enabled,Disabled" ],
+			[ "Play Videos on Collections",  "videoplaycollections",  "",  "Enabled,Disabled" ],
+			[ "Play Videos on Games",  "videoplaygames",  "",  "Enabled,Disabled" ],
 			[ "Play Video Sounds",  "videosound",  "",  "Enabled,Disabled" ],
 			[ "Show All Games", "allGamesCollection", "", "Yes,No" ],
 			[ "Show Favorites", "favoritesCollection", "", "Yes,No" ],

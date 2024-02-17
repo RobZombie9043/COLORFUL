@@ -75,6 +75,11 @@ FocusScope {
             background: "black",
             text: "white",
             accent: "gray",
+        },
+		"LightGray": {
+            background: "#e4e4e4",
+            text: "black",
+            accent: "#10AEBE",
         }
     }
 	
@@ -95,6 +100,8 @@ FocusScope {
             return "SteamOS";
 		} else if (api.memory.get('themeIndex') == "4") {
             return "Black";
+		} else if (api.memory.get('themeIndex') == "5") {
+            return "LightGray";
         } else {
             return "Dark";
         }
@@ -132,8 +139,16 @@ FocusScope {
 		}
 	}
 	
-	property bool videoplay: {
-        if (api.memory.get('videoplay') == "Enabled") {
+	property bool videoplaycollections: {
+        if (api.memory.get('videoplaycollections') == "Enabled") {
+            return true;
+        } else {
+            return false
+		}
+	}
+	
+	property bool videoplaygames: {
+        if (api.memory.get('videoplaygames') == "Enabled") {
             return true;
         } else {
             return false

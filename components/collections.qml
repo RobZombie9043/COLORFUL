@@ -353,7 +353,7 @@ FocusScope {
 	}
 
 	property string videoSource: "../assets/videos/devices/" + collectiondata.getAlias(currentCollection.shortName) + ".mp4"
-
+	
 	Timer {
 		id: videoDelay
 
@@ -389,7 +389,7 @@ FocusScope {
 			fillMode: VideoOutput.PreserveAspectCrop
 			loops: MediaPlayer.Infinite
 			autoPlay: true
-			visible: videoSource && videoplay
+			visible: videoSource && videoplaycollections
 			muted: videosound
 		}
 	}
