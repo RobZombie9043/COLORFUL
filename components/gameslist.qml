@@ -109,19 +109,32 @@ FocusScope {
 	
 		Component {
 			id: gameListViewDelegate
-
+			
 			Text {
-				text: ListView.isCurrentItem ? "\u25BA" + modelData.title : modelData.title
+				text: ListView.isCurrentItem ? "\u25BA" + modelData.title : modelData.title  //alternative to add a red heart symbol to listview game title text: ListView.isCurrentItem ? "\u25BA" + (modelData.favorite ? "\u2764 " : "") + modelData.title : (modelData.favorite ? "\u2764 " : "") + modelData.title
 				color: ListView.isCurrentItem ? collectiondata.getColor(currentCollection.shortName) : colorScheme[theme].background
 				font.family: globalFonts.sans
 				font.pixelSize: ListView.isCurrentItem ? scaleItem(20) : scaleItem(15)
 				font.bold: true
 
-				width: ListView.isCurrentItem ? scaleItem(282) : scaleItem(252) 
-				height: ListView.isCurrentItem ? scaleItem(31) : scaleItem(29)
+				width: scaleItem(282) 
+				height: scaleItem(31)
 				leftPadding: ListView.isCurrentItem ? scaleItem(30) : scaleItem(45)
 				verticalAlignment: Text.AlignVCenter
-				elide: Text.ElideRight			
+				elide: Text.ElideRight		
+
+				Image {
+					id: heart
+					anchors.right: parent.right
+					anchors.rightMargin: -scaleItem(27)
+					anchors.top: parent.top
+					anchors.topMargin: scaleItem(3)
+					verticalAlignment: Image.AlignVCenter
+					source: "../assets/images/icons/Colorful_IconFav.png"
+					width: scaleItem(24)
+					height: scaleItem(24)
+					opacity: modelData.favorite
+				}
 
 				MouseArea {											
 					anchors.fill: parent
@@ -484,6 +497,7 @@ FocusScope {
 		SortFilterProxyModel {
             id: filteredGames
             sourceModel: currentCollection.games
+			sorters: RoleSorter { roleName: "favorite"; sortOrder: Qt.DescendingOrder; enabled: favoritesOnTop; }
             filters: ValueFilter { roleName: "favorite"; value: true; enabled: favoritesFiltered }
         }
 		

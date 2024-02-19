@@ -746,6 +746,7 @@ FocusScope {
 		SortFilterProxyModel {
             id: filteredGames
             sourceModel: currentCollection.games
+			sorters: RoleSorter { roleName: "favorite"; sortOrder: Qt.DescendingOrder; enabled: favoritesOnTop; }
             filters: ValueFilter { roleName: "favorite"; value: true; enabled: favoritesFiltered }
         }
 		

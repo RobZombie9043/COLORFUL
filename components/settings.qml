@@ -40,7 +40,8 @@ FocusScope {
 			[ "Play Video Sounds",  "videosound",  "",  "Enabled,Disabled" ],
 			[ "Show All Games Playlist", "allGamesCollection", "", "Yes,No" ],
 			[ "Show Favorites Playlist", "favoritesCollection", "", "Yes,No" ],
-			[ "Show Last Played Playlist", "lastPlayedCollection", "", "Yes,No" ]
+			[ "Show Last Played Playlist", "lastPlayedCollection", "", "Yes,No" ],
+			[ "Show Favorites on Top", "favoritesOnTop", "", "Yes,No" ]
 			
 			
             ].forEach(function(element) {
