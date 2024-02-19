@@ -7,7 +7,7 @@ import SortFilterProxyModel 0.2
 FocusScope {
     id: root
 
-    property int currentCollectionIndex: 0
+	property int currentCollectionIndex: 0
     property string state: 'collections' 
 
     Collections{
@@ -61,12 +61,12 @@ FocusScope {
             text: "black",
             accent: "#10AEBE",
         },
-        "OzoneDark": {
+        "Ozone Dark": {
             background: "#2D2D2D",
             text: "white",
             accent: "#00D9AE",
         },
-        "SteamOS": {
+        "Steam OS": {
             background: "#2B2F38",
             text: "white",
             accent: "#1A9FFF",
@@ -76,10 +76,10 @@ FocusScope {
             text: "white",
             accent: "gray",
         },
-		"LightGray": {
-            background: "#e4e4e4",
-            text: "black",
-            accent: "#10AEBE",
+		"Dark Gray": {
+            background: "#222",
+            text: "white",
+            accent: "orange",
         }
     }
 	
@@ -95,13 +95,13 @@ FocusScope {
         if (api.memory.get('themeIndex') == "1") {
             return "Light";
         } else if (api.memory.get('themeIndex') == "2") {
-            return "OzoneDark";
+            return "Ozone Dark";
         } else if (api.memory.get('themeIndex') == "3") {
-            return "SteamOS";
+            return "Steam OS";
 		} else if (api.memory.get('themeIndex') == "4") {
             return "Black";
 		} else if (api.memory.get('themeIndex') == "5") {
-            return "LightGray";
+            return "Dark Gray";
         } else {
             return "Dark";
         }
@@ -191,6 +191,14 @@ FocusScope {
         id: lastPlayed
         sourceModel: lastPlayedBase
         filters: IndexFilter { maximumIndex: 49; }
+    }
+	
+	property int screenwidth: Screen.width
+	property int screenheight: Screen.height
+	property real scaleFactor: Math.min(width / 1280, height / 720)
+	
+	function scaleItem(originalSize) {
+		return originalSize * scaleFactor
     }
 }
 

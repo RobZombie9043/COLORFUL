@@ -14,14 +14,14 @@ FocusScope {
 	Text {
 		anchors {
             top: parent.top
-            topMargin: vpx(50)
+            topMargin: scaleItem(50)
             bottom: parent.bottom
             left: parent.left
-			leftMargin: vpx(200)
+			leftMargin: scaleItem(200)
         }
 		text: "Theme Settings"
         font.family: globalFonts.sans
-		font.pixelSize: vpx(50)
+		font.pixelSize: scaleItem(50)
 		font.bold: true
 		color: colorScheme[theme].text
 	}
@@ -32,7 +32,7 @@ FocusScope {
 		Component.onCompleted: {
             [
             [ "Games View",  "gamesview",  "",  "Wheel,List" ],
-            [ "Theme Color",  "theme",  "",  "Dark,Light,OzoneDark,SteamOS,Black,LightGray" ],
+            [ "Theme Color",  "theme",  "",  "Dark,Light,Ozone Dark,Steam OS,Black,Dark Gray" ],
 			[ "Logo Variation",  "logo",  "",  "Dark - Color,Dark - Black,Light - Color,Light - White" ],
 			[ "Accept Button",  "buttons",  "",  "A,B,Cross (X),Circle (O)" ],
 			[ "Play Videos on Collections View",  "videoplaycollections",  "",  "Enabled,Disabled" ],
@@ -54,7 +54,7 @@ FocusScope {
         }
     }
 
-    property real itemheight: vpx(50)
+    property real itemheight: scaleItem(50)
 
     ListView {
         id: settingsList
@@ -62,15 +62,15 @@ FocusScope {
         delegate: settingsDelegate
         anchors {
             top: parent.top
-            topMargin: vpx(150)
+            topMargin: scaleItem(150)
             bottom: parent.bottom
             left: parent.left
-			leftMargin: vpx(200)
+			leftMargin: scaleItem(200)
             right: parent.right
-			rightMargin: vpx(200)
+			rightMargin: scaleItem(200)
         }
-        width: vpx(500)
-        spacing: vpx(0)
+        width: scaleItem(500)
+        spacing: scaleItem(0)
         orientation: ListView.Vertical
 		
 		currentIndex: currentSettingsIndex
@@ -131,7 +131,7 @@ FocusScope {
                     color: colorScheme[theme].text
                     font {
                         family: global.fonts.condensed
-                        pixelSize: vpx(30)
+                        pixelSize: scaleItem(30)
                     }
                     verticalAlignment: Text.AlignVCenter
                     opacity: selected ? 1 : 0.2
@@ -140,7 +140,7 @@ FocusScope {
                     height: parent.height
                     anchors {
                         left: parent.left
-                        leftMargin: vpx(40)
+                        leftMargin: scaleItem(40)
                     }
                 }
 
@@ -150,7 +150,7 @@ FocusScope {
                     color: colorScheme[theme].accent
                     font {
                         family: global.fonts.condensed
-                        pixelSize: vpx(30)
+                        pixelSize: scaleItem(30)
                     }
                     verticalAlignment: Text.AlignVCenter
                     opacity: selected ? 1 : 0.2
@@ -158,21 +158,21 @@ FocusScope {
                     height: parent.height
                     anchors {
                         right: parent.right
-                        rightMargin: vpx(40)
+                        rightMargin: scaleItem(40)
                     }
                 }
 
                 Rectangle {
                     anchors {
                         left: parent.left
-                        leftMargin: vpx(25)
+                        leftMargin: scaleItem(25)
                         right: parent.right
-                        rightMargin: vpx(25)
+                        rightMargin: scaleItem(25)
                         bottom: parent.bottom
                     }
                     color: colorScheme[theme].text
                     opacity: selected ? 0.1 : 0
-                    height: vpx(1)
+                    height: scaleItem(1)
                 }
 
                 Keys.onRightPressed: {

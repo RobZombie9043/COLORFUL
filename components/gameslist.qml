@@ -13,7 +13,7 @@ FocusScope {
 	property bool favoritesFiltered: false
 		
 	Rectangle {												
-		width: vpx(576)   
+		width: scaleItem(576)   
 		height: parent.height
 		anchors.top: parent.top
 		anchors.right: parent.right
@@ -21,7 +21,7 @@ FocusScope {
 	}
 	
 	Rectangle {												
-		width: vpx (704)   
+		width: scaleItem (704)   
 		anchors.top: parent.top
 		anchors.bottom: parent.bottom
 		anchors.left: parent.left
@@ -34,13 +34,13 @@ FocusScope {
 		model: filteredGames
 		delegate: gameListViewDelegate
 		
-		width: vpx(282)
+		width: scaleItem(282)
 		anchors.left: parent.left
 		anchors.top: parent.top
 		anchors.bottom: parent.bottom
-		anchors.topMargin: vpx(115)
-		anchors.bottomMargin: vpx(115)
-		anchors.leftMargin: vpx(-30)
+		anchors.topMargin: scaleItem(115)
+		anchors.bottomMargin: scaleItem(115)
+		anchors.leftMargin: scaleItem(-30)
 		
 		focus:true
 		
@@ -96,8 +96,8 @@ FocusScope {
 			}
         }
 		
-		preferredHighlightBegin : height * 0.5 - vpx(15)
-		preferredHighlightEnd: height * 0.5 + vpx(15)
+		preferredHighlightBegin : height * 0.5 - scaleItem(15)
+		preferredHighlightEnd: height * 0.5 + scaleItem(15)
 		
 		currentIndex: currentGameIndex
         onCurrentIndexChanged: currentGameIndex = currentIndex
@@ -113,12 +113,12 @@ FocusScope {
 				text: ListView.isCurrentItem ? "\u25BA" + modelData.title : modelData.title
 				color: ListView.isCurrentItem ? collectiondata.getColor(currentCollection.shortName) : colorScheme[theme].background
 				font.family: globalFonts.sans
-				font.pixelSize: ListView.isCurrentItem ? vpx(20) : vpx(15)
+				font.pixelSize: ListView.isCurrentItem ? scaleItem(20) : scaleItem(15)
 				font.bold: true
 
-				width: ListView.isCurrentItem ? vpx(282) : vpx(252) 
-				height: ListView.isCurrentItem ? vpx(31) : vpx(29)
-				leftPadding: ListView.isCurrentItem ? vpx(30) : vpx(45)
+				width: ListView.isCurrentItem ? scaleItem(282) : scaleItem(252) 
+				height: ListView.isCurrentItem ? scaleItem(31) : scaleItem(29)
+				leftPadding: ListView.isCurrentItem ? scaleItem(30) : scaleItem(45)
 				verticalAlignment: Text.AlignVCenter
 				elide: Text.ElideRight			
 
@@ -135,10 +135,10 @@ FocusScope {
 	Component {
 		id: highlight
 		Rectangle {
-			width: vpx(282) 
-			height: vpx(24)
+			width: scaleItem(282) 
+			height: scaleItem(24)
 			color: colorScheme[theme].background
-			radius: vpx(30)
+			radius: scaleItem(30)
 		}
 	}
 	
@@ -149,25 +149,25 @@ FocusScope {
 		
 		Image {
 			id: gamecover									
-			width: vpx(392)
-			height: parent.height - vpx(120)
+			width: scaleItem(392)
+			height: parent.height - scaleItem(120)
 			fillMode: Image.PreserveAspectFit
 			source: currentGame.assets.boxFront
 			asynchronous: true
 
 			anchors.left: parent.left
-			anchors.leftMargin: vpx(282)
+			anchors.leftMargin: scaleItem(282)
 			anchors.verticalCenter: parent.verticalCenter
 		}
 	}
 	
 	Item {
 		id: genreContainer
-		width: vpx(364)
+		width: scaleItem(364)
 		anchors.left: parent.left
-		anchors.leftMargin: vpx(734)
+		anchors.leftMargin: scaleItem(734)
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: vpx(513) + titleContentHeight + vpx(10)
+		anchors.bottomMargin: scaleItem(513) + titleContentHeight + scaleItem(10)
 		visible: currentGame !== null
 				
 		Text {
@@ -175,14 +175,14 @@ FocusScope {
 			text: currentGame.genre
 			color: collectiondata.getColor(currentCollection.shortName);
 			font {
-				pixelSize: vpx(18);
+				pixelSize: scaleItem(18);
 				letterSpacing: 1.3;
 				bold: true;
 			}
 			width: parent.width
 			anchors.bottom: parent.bottom
 			wrapMode: Text.Wrap
-			maximumLineCount: titleContentHeight < vpx(135) ? 3 : 2
+			maximumLineCount: titleContentHeight < scaleItem(135) ? 3 : 2
 		}
 	}
 	
@@ -190,9 +190,9 @@ FocusScope {
 		id: gametitleContainer
 		
 		anchors.left: parent.left
-		anchors.leftMargin: vpx(734)
+		anchors.leftMargin: scaleItem(734)
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: vpx(513)
+		anchors.bottomMargin: scaleItem(513)
 		visible: currentGame !== null
 				
 		Text {
@@ -200,9 +200,9 @@ FocusScope {
 			text: currentGame.title
 			color: colorScheme[theme].text 
 			font.family: globalFonts.sans
-			font.pixelSize: vpx(36)
+			font.pixelSize: scaleItem(36)
 			font.bold: true
-			width: vpx(364)
+			width: scaleItem(364)
 			maximumLineCount: 3
 			elide: Text.ElideRight
 			wrapMode: Text.Wrap
@@ -215,9 +215,9 @@ FocusScope {
 	Item {
 		id: ratingstarscontainer
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: vpx(485)
+		anchors.bottomMargin: scaleItem(485)
 		anchors.left: parent.left
-		anchors.leftMargin: vpx(734)
+		anchors.leftMargin: scaleItem(734)
 		visible: currentGame !== null
 		
 		Image {
@@ -225,8 +225,8 @@ FocusScope {
 			
 			anchors.bottom: parent.bottom
 			anchors.left: parent.left
-			width: vpx(364)
-			height: vpx (18)
+			width: scaleItem(364)
+			height: scaleItem (18)
 			horizontalAlignment : Image.AlignLeft
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/images/stars/" + rating + ".png"
@@ -241,12 +241,12 @@ FocusScope {
 	
 	Item {
 		id: gamesummaryContainer
-		width: vpx(364)
-		height: vpx (135)
+		width: scaleItem(364)
+		height: scaleItem (135)
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: vpx(330)
+		anchors.bottomMargin: scaleItem(330)
 		anchors.left: parent.left
-		anchors.leftMargin: vpx(734)
+		anchors.leftMargin: scaleItem(734)
 		visible: currentGame !== null
 		
 		PegasusUtils.AutoScroll {												
@@ -258,7 +258,7 @@ FocusScope {
 				color: colorScheme[theme].text
 				opacity: 0.6;
 				font {
-					pixelSize: vpx(16);
+					pixelSize: scaleItem(16);
 					bold: false;
 					family: globalFonts.condensed
 				}
@@ -274,12 +274,12 @@ FocusScope {
 	Item {
 		id: gamescreenshotcontainer
 		
-		width: vpx(516)
-		height: vpx (270)
+		width: scaleItem(516)
+		height: scaleItem (270)
 		anchors.left: parent.left
-		anchors.leftMargin: vpx(734)		
+		anchors.leftMargin: scaleItem(734)		
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: vpx(40)
+		anchors.bottomMargin: scaleItem(40)
 		visible: currentGame !== null
 		
 		Image {
@@ -296,12 +296,12 @@ FocusScope {
 	Item {
 		id: videocontainer
 					
-		width: vpx(516)
-		height: vpx (270)
+		width: scaleItem(516)
+		height: scaleItem (270)
 		anchors.left: parent.left
-		anchors.leftMargin: vpx(734)		
+		anchors.leftMargin: scaleItem(734)		
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: vpx(40)
+		anchors.bottomMargin: scaleItem(40)
 		visible: currentGame !== null
 	
 		Loader {
@@ -387,12 +387,12 @@ FocusScope {
 	Item {
 		id: favoriteiconContainer
 		
-		width: vpx(30)
-		height: vpx(30)
+		width: scaleItem(30)
+		height: scaleItem(30)
 		anchors.left: parent.left
-		anchors.leftMargin: vpx(1128)
+		anchors.leftMargin: scaleItem(1128)
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: vpx(520)
+		anchors.bottomMargin: scaleItem(520)
 	
 		Image {
 			id: favoriteicon
@@ -400,8 +400,8 @@ FocusScope {
 			anchors.bottom: parent.bottom
 			anchors.left: parent.left
 			verticalAlignment : Image.AlignBottom
-			width: vpx(30)
-			height: vpx(30)
+			width: scaleItem(30)
+			height: scaleItem(30)
 			opacity: currentGame.favorite
 			source: "../assets/images/icons/Colorful_IconFav.png"
 		}
@@ -416,11 +416,11 @@ FocusScope {
 	
 	Item {														
 		id: gameYearContainer
-			width: vpx (137)
+			width: scaleItem (137)
 			anchors.left: parent.left
-			anchors.leftMargin: vpx(1128)	
+			anchors.leftMargin: scaleItem(1128)	
 			anchors.bottom: parent.bottom
-			anchors.bottomMargin: vpx(485)
+			anchors.bottomMargin: scaleItem(485)
 			visible: currentGame !== null
 		
 		Text {
@@ -431,18 +431,18 @@ FocusScope {
 			anchors.bottom: parent.bottom
 			anchors.left: parent.left
 			font.family: globalFonts.sans
-			font.pixelSize: vpx(18)
+			font.pixelSize: scaleItem(18)
 			font.bold: true
 		}
 	}
 	
 	Item {															
 		id: gameinfoContainer
-			width: vpx (137)
+			width: scaleItem (137)
 			anchors.left: parent.left
-			anchors.leftMargin: vpx(1128)	
+			anchors.leftMargin: scaleItem(1128)	
 			anchors.top: parent.top
-			anchors.topMargin: vpx(255)
+			anchors.topMargin: scaleItem(255)
 			visible: currentGame !== null
 		
 		Text {
@@ -453,7 +453,7 @@ FocusScope {
 			anchors.top: parent.top
 			anchors.left: parent.left
 			font.family: globalFonts.sans
-			font.pixelSize: vpx(18)
+			font.pixelSize: scaleItem(18)
 			font.bold: false
 			opacity: 0.6
 		}
@@ -464,12 +464,12 @@ FocusScope {
 			text: currentGame.developer
 			color: colorScheme[theme].text
 			anchors.top: gamePlayers.bottom
-			anchors.topMargin: vpx(10)
+			anchors.topMargin: scaleItem(10)
 			anchors.left: parent.left
 			font.family: globalFonts.sans
-			font.pixelSize: vpx(18)
+			font.pixelSize: scaleItem(18)
 			font.bold: false
-			width: vpx(142)
+			width: scaleItem(142)
 			wrapMode: Text.Wrap
 			opacity: 0.6
 		}
@@ -522,8 +522,8 @@ FocusScope {
 		id: nogamesContainer
 			anchors.left: parent.left
 			anchors.top: parent.top
-			anchors.topMargin: vpx(115)
-			anchors.leftMargin: vpx(30)
+			anchors.topMargin: scaleItem(115)
+			anchors.leftMargin: scaleItem(30)
 		
 			visible: currentGame == null && (gameslist.state === "filtered")
 		
@@ -533,7 +533,7 @@ FocusScope {
 			text: "No games available for current filter"
 			color: colorScheme[theme].text
 			font.family: globalFonts.sans
-			font.pixelSize: vpx(30)
+			font.pixelSize: scaleItem(30)
 			font.bold: true
 		}
 	}
