@@ -57,6 +57,7 @@ FocusScope {
 				if (transitions.state === 'collectionDetails') {
 				event.accepted = true;
 				transitions.state = 'collectionSelection';
+				videoPreviewLoader.sourceComponent = undefined;
 				}
 			}
 		}
