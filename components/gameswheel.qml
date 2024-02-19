@@ -45,6 +45,7 @@ FocusScope {
 				if (transitions.state === 'gamesDetails') {
 				event.accepted = true;
 				transitions.state = 'gamesSelection';
+				videoPreviewLoader.sourceComponent = undefined;
 				} else {
 				event.accepted = true;
 				root.state = 'collections'

@@ -55,6 +55,7 @@ FocusScope {
 			{
 				event.accepted = true;
 				root.state = 'collections'
+				videoPreviewLoader.sourceComponent = undefined;
 			}
 			if (api.keys.isDetails(event))
 			{

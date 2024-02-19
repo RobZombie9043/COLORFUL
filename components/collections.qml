@@ -38,9 +38,11 @@ FocusScope {
 			if (api.keys.isAccept(event))
 			{
 				event.accepted = true;
+				root.state = gamesview    
+				gameslist.currentGameIndex = -1;  // these gameIndex changes make the state transition changes work on first change to games view
 				gameslist.currentGameIndex = 0;
+				gameswheel.currentGameIndex = -1;
 				gameswheel.currentGameIndex = 0;
-				root.state = gamesview                       
 			}
 			if (api.keys.isDetails(event))
 			{
