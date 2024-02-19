@@ -39,9 +39,8 @@ Platforms included:
 - [x] Shortcut keys to change collection index from game view
 - [ ] Shortcut keys to move to start/end of list / skip letter
 - [ ] Nav sounds
-- [ ] Better color matching between videos and rendered text/shapes
 - [x] Favorites filter
-- [ ] Favorites on top toggle
+- [x] Favorites on top toggle
 - [ ] Fix game auto scroll on first transition to list view
 - [x] Return to previous screen when closing settings
 
