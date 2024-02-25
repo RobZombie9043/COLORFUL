@@ -97,7 +97,7 @@ FocusScope {
 		currentIndex: currentGameIndex
         onCurrentIndexChanged: currentGameIndex = currentIndex
 		
-		spacing: scaleItem(144);
+		spacing: scaleItemHeight(144);
 		
 		snapMode: ListView.SnapOneItem
 		highlightRangeMode: ListView.StrictlyEnforceRange
@@ -116,7 +116,7 @@ FocusScope {
 					text: modelData.title
 					color: colorScheme[theme].text 
 					font.family: globalFonts.sans
-					font.pixelSize: index === gameAxis.currentIndex ? scaleItem (30) : scaleItem (15)
+					font.pixelSize: index === gameAxis.currentIndex ? scaleItemHeight (30) : scaleItemHeight (15)
 					font.bold: true
 					wrapMode: Text.Wrap
 					maximumLineCount: 3
@@ -129,8 +129,8 @@ FocusScope {
 				Image {
 					id: gameLogo
 
-					width: index === gameAxis.currentIndex ? scaleItem (320) : scaleItem (160)
-					height: index === gameAxis.currentIndex ? scaleItem (120) : scaleItem (50)
+					width: index === gameAxis.currentIndex ? scaleItemWidth (320) : scaleItemWidth (160)
+					height: index === gameAxis.currentIndex ? scaleItemHeight (120) : scaleItemHeight (50)
 					anchors.verticalCenter: parent.verticalCenter
 					anchors.horizontalCenter: parent.horizontalCenter
 					fillMode: Image.PreserveAspectFit
@@ -155,7 +155,7 @@ FocusScope {
 		Item {															
 			id: gameNameContainer
 				anchors.right: parent.right
-				anchors.rightMargin: scaleItem(640)
+				anchors.rightMargin: parent.width / 2
 				anchors.verticalCenter: parent.verticalCenter
 				visible: currentGame !== null
 
@@ -168,11 +168,11 @@ FocusScope {
 				opacity: 0.5
 				anchors.verticalCenter: parent.verticalCenter
 				anchors.right: parent.right
-				anchors.rightMargin: scaleItem(30)
-				width: scaleItem(580)
+				anchors.rightMargin: scaleItemWidth(30)
+				width: scaleItemWidth(580)
 				horizontalAlignment: Text.AlignRight
 				font.family: globalFonts.sans
-				font.pixelSize: scaleItem(30)
+				font.pixelSize: scaleItemHeight(30)
 				font.bold: true
 				wrapMode: Text.Wrap
 				clip: true
@@ -195,17 +195,17 @@ FocusScope {
 				opacity: 0.5
 				anchors.verticalCenter: parent.verticalCenter
 				anchors.left: parent.left
-				anchors.leftMargin: scaleItem(30)
+				anchors.leftMargin: scaleItemWidth(30)
 				font.family: globalFonts.sans
-				font.pixelSize: scaleItem(30)
+				font.pixelSize: scaleItemHeight(30)
 				font.bold: true
 			}
 		}
 		
 		Rectangle {										
 			id: dividerRight
-			width: scaleItem (2)
-			height: scaleItem (40)
+			width: scaleItemWidth (2)
+			height: scaleItemHeight (40)
 			anchors.right: parent.right
 			anchors.rightMargin: parent.width / 6
 			anchors.verticalCenter: parent.verticalCenter
@@ -216,8 +216,8 @@ FocusScope {
 		
 		Rectangle {											
 			id: dividerLeft
-			width: scaleItem (2)
-			height: scaleItem (40)
+			width: scaleItemWidth (2)
+			height: scaleItemHeight (40)
 			anchors.right: parent.right
 			anchors.rightMargin: parent.width / 2
 			anchors.verticalCenter: parent.verticalCenter
@@ -239,7 +239,7 @@ FocusScope {
 				NumberAnimation { target: gameAxis; property: "opacity"; to: 0 ; duration: 250 }
 				SequentialAnimation {
 					ParallelAnimation {
-						NumberAnimation { target: videocontainer; property: "width"; to: scaleItem(738); duration: 500 }
+						NumberAnimation { target: videocontainer; property: "width"; to: scaleItemWidth(738); duration: 500 }
 						SequentialAnimation {
 							PauseAnimation { duration: 300 }
 							NumberAnimation { target: gamescreenshot; property: "opacity"; to: 1; duration: 200 }
@@ -248,36 +248,36 @@ FocusScope {
 					ParallelAnimation {
 						NumberAnimation { target: scrollbuttonsContainer; property: "opacity"; to: 1; duration: 0 }
 						NumberAnimation { target: gamecovercontainer; property: "opacity"; to: 1; duration: 500 }
-						NumberAnimation { target: gamecover; property: "anchors.leftMargin"; to: scaleItem(512) - scaleItem(40); duration: 500 }
+						NumberAnimation { target: gamecover; property: "anchors.leftMargin"; to: scaleItemWidth(512) - scaleItemWidth(40); duration: 500 }
 						NumberAnimation { target: genreContainer; property: "opacity"; to: 1; duration: 500 }
-						NumberAnimation { target: genreContainer; property: "anchors.leftMargin"; to: scaleItem(40); duration: 500 }
+						NumberAnimation { target: genreContainer; property: "anchors.leftMargin"; to: scaleItemWidth(40); duration: 500 }
 						NumberAnimation { target: gametitleContainer; property: "opacity"; to: 1; duration: 0 }
 						NumberAnimation { target: gametitleRectangle; property: "opacity"; to: 1; duration: 0 }
-						NumberAnimation { target: gametitleContainer; property: "anchors.leftMargin"; to: scaleItem(40); duration: 500 }
+						NumberAnimation { target: gametitleContainer; property: "anchors.leftMargin"; to: scaleItemWidth(40); duration: 500 }
 						NumberAnimation { target: gametitleRectangle; property: "width"; to: 0; duration: 500 }
 						NumberAnimation { target: gameinfoContainer; property: "opacity"; to: 1; duration: 0 }
-						NumberAnimation { target: gameinfoRect; property: "width"; to: scaleItem(400); duration: 500 }
+						NumberAnimation { target: gameinfoRect; property: "width"; to: scaleItemWidth(400); duration: 500 }
 					}
 					ParallelAnimation {
 						NumberAnimation { target: gameinfoAccent; property: "opacity"; to: 1; duration: 0 }
 						NumberAnimation { target: gameinfoAccent; property: "width"; to: 10; duration: 500 }
 						NumberAnimation { target: gameinfoDivider; property: "opacity"; to: 0.3; duration: 500 }
-						NumberAnimation { target: gameinfoDivider; property: "anchors.topMargin"; to: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10) + scaleItem(10); duration: 500 }
+						NumberAnimation { target: gameinfoDivider; property: "anchors.topMargin"; to: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10) + scaleItemHeight(10); duration: 500 }
 						NumberAnimation { target: gamereleaseContainer; property: "opacity"; to: 1; duration: 500 }
-						NumberAnimation { target: gamereleaseContainer; property: "anchors.topMargin"; to: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10); duration: 500 }
+						NumberAnimation { target: gamereleaseContainer; property: "anchors.topMargin"; to: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10); duration: 500 }
 						NumberAnimation { target: ratingContainer; property: "opacity"; to: 1; duration: 500 }
-						NumberAnimation { target: ratingContainer; property: "anchors.topMargin"; to: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10); duration: 500 }		
+						NumberAnimation { target: ratingContainer; property: "anchors.topMargin"; to: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10); duration: 500 }		
 						NumberAnimation { target: favoriteiconContainer; property: "opacity"; to: 1; duration: 500 }
-						NumberAnimation { target: favoriteiconContainer; property: "anchors.topMargin"; to: parent.height / 2 - titleContentHeight - genreContentHeight - scaleItem(10) - scaleItem(30)- scaleItem(20); duration: 500 }		
+						NumberAnimation { target: favoriteiconContainer; property: "anchors.topMargin"; to: parent.height / 2 - titleContentHeight - genreContentHeight - scaleItemHeight(10) - scaleItemHeight(30)- scaleItemHeight(20); duration: 500 }		
 					}
 					ParallelAnimation { 
 						NumberAnimation { target: gamesummaryContainer; property: "opacity"; to: 1; duration: 500 }
-						NumberAnimation { target: gamesummaryContainer; property: "anchors.topMargin"; to: parent.height/2 + scaleItem(10); duration: 500 }
+						NumberAnimation { target: gamesummaryContainer; property: "anchors.topMargin"; to: parent.height/2 + scaleItemHeight(10); duration: 500 }
 					}
 					PauseAnimation { duration: 4000 }
 					ParallelAnimation {
 						NumberAnimation { target: gamecovercontainer; property: "opacity"; to: 0; duration: 500 }
-						NumberAnimation { target: gamecover; property: "anchors.leftMargin"; to: scaleItem(512) - scaleItem(120); duration: 500 }
+						NumberAnimation { target: gamecover; property: "anchors.leftMargin"; to: scaleItemWidth(512) - scaleItemWidth(120); duration: 500 }
 					}
 				}
 			},
@@ -292,27 +292,27 @@ FocusScope {
 				NumberAnimation { target: videocontainer; property: "width"; to: 0; duration: 0 }
 				NumberAnimation { target: scrollbuttonsContainer; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: gamecovercontainer; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: gamecover; property: "anchors.leftMargin"; to: scaleItem(512) - scaleItem(120); duration: 0 }
+				NumberAnimation { target: gamecover; property: "anchors.leftMargin"; to: scaleItemWidth(512) - scaleItemWidth(120); duration: 0 }
 				NumberAnimation { target: gametitleContainer; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: gametitleRectangle; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: gametitleContainer; property: "anchors.leftMargin"; to: scaleItem(0); duration: 0 }
-				NumberAnimation { target: gametitleRectangle; property: "width"; to: scaleItem(482); duration: 0 }
+				NumberAnimation { target: gametitleContainer; property: "anchors.leftMargin"; to: scaleItemWidth(0); duration: 0 }
+				NumberAnimation { target: gametitleRectangle; property: "width"; to: scaleItemWidth(482); duration: 0 }
 				NumberAnimation { target: genreContainer; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: genreContainer; property: "anchors.leftMargin"; to: scaleItem(0); duration: 0 }
+				NumberAnimation { target: genreContainer; property: "anchors.leftMargin"; to: scaleItemWidth(0); duration: 0 }
 				NumberAnimation { target: gamesummaryContainer; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: gamesummaryContainer; property: "anchors.topMargin"; to: parent.height/2 + scaleItem(30); duration: 0 }
+				NumberAnimation { target: gamesummaryContainer; property: "anchors.topMargin"; to: parent.height/2 + scaleItemHeight(30); duration: 0 }
 				NumberAnimation { target: gameinfoContainer; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: gameinfoRect; property: "width"; to: scaleItem(0); duration: 0 }
+				NumberAnimation { target: gameinfoRect; property: "width"; to: scaleItemWidth(0); duration: 0 }
 				NumberAnimation { target: gameinfoAccent; property: "opacity"; to: 0; duration: 0 }
 				NumberAnimation { target: gameinfoAccent; property: "width"; to: 0; duration: 0 }
 				NumberAnimation { target: gameinfoDivider; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: gameinfoDivider; property: "anchors.topMargin"; to: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10) + scaleItem(10) + scaleItem(10); duration: 0 }
+				NumberAnimation { target: gameinfoDivider; property: "anchors.topMargin"; to: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10) + scaleItemHeight(10) + scaleItemHeight(10); duration: 0 }
 				NumberAnimation { target: gamereleaseContainer; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: gamereleaseContainer; property: "anchors.topMargin"; to: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10) + scaleItem(20); duration: 0 }		
+				NumberAnimation { target: gamereleaseContainer; property: "anchors.topMargin"; to: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10) + scaleItemHeight(20); duration: 0 }		
 				NumberAnimation { target: ratingContainer; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: ratingContainer; property: "anchors.topMargin"; to: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10) + scaleItem(20); duration: 0 }		
+				NumberAnimation { target: ratingContainer; property: "anchors.topMargin"; to: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10) + scaleItemHeight(20); duration: 0 }		
 				NumberAnimation { target: favoriteiconContainer; property: "opacity"; to: 0; duration: 0 }
-				NumberAnimation { target: favoriteiconContainer; property: "anchors.topMargin"; to: parent.height / 2 - titleContentHeight - genreContentHeight - scaleItem(10) - scaleItem(30); duration: 500 }		
+				NumberAnimation { target: favoriteiconContainer; property: "anchors.topMargin"; to: parent.height / 2 - titleContentHeight - genreContentHeight - scaleItemHeight(10) - scaleItemHeight(30); duration: 500 }		
 			}
 		]
 	}
@@ -323,11 +323,11 @@ FocusScope {
 		width: parent.width * 0
 		height: parent.height
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(512)		
+		anchors.leftMargin: scaleItemWidth(512)		
 		anchors.top: parent.top
-		anchors.topMargin: scaleItem(30)
+		anchors.topMargin: scaleItemHeight(30)
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: scaleItem(30)
+		anchors.bottomMargin: scaleItemHeight(30)
 		
 		Image {
 			id: gamescreenshot
@@ -415,7 +415,7 @@ FocusScope {
 		id: gametitleContainer
 		height: parent.height / 2
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(0)
+		anchors.leftMargin: scaleItemWidth(0)
 		anchors.top: parent.top
 		opacity: 0
 
@@ -425,9 +425,9 @@ FocusScope {
 			text: currentGame.title
 			color: colorScheme[theme].text
 			font.family: globalFonts.sans
-			font.pixelSize: scaleItem(45)
+			font.pixelSize: scaleItemHeight(45)
 			font.bold: true
-			width: scaleItem(400)
+			width: scaleItemWidth(400)
 			wrapMode: Text.Wrap
 			verticalAlignment : Text.AlignBottom
 			anchors.bottom: parent.bottom
@@ -438,9 +438,9 @@ FocusScope {
 	Rectangle {
 		id: gametitleRectangle
 		height: titleContentHeight
-		width: scaleItem(400)
+		width: scaleItemWidth(400)
 		anchors.right: parent.right
-		anchors.rightMargin: scaleItem(840)
+		anchors.rightMargin: scaleItemWidth(840)
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: parent.height/2
 		color: colorScheme[theme].background 
@@ -449,11 +449,11 @@ FocusScope {
 	
 	Item {
 		id: genreContainer
-		width: scaleItem(400)
+		width: scaleItemWidth(400)
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(0)
+		anchors.leftMargin: scaleItemWidth(0)
 		anchors.top: parent.top
-		anchors.topMargin: parent.height / 2 - titleContentHeight - genreContentHeight - scaleItem(10)
+		anchors.topMargin: parent.height / 2 - titleContentHeight - genreContentHeight - scaleItemHeight(10)
 		opacity: 0
 		
 		Text {
@@ -461,7 +461,7 @@ FocusScope {
 			text: currentGame.genre
 			color: collectiondata.getColor(currentCollection.shortName);
 			font {
-				pixelSize: scaleItem(20);
+				pixelSize: scaleItemHeight(20);
 				letterSpacing: 1.3;
 				bold: true;
 			}
@@ -474,12 +474,12 @@ FocusScope {
 	
 	Item {
 		id: favoriteiconContainer
-		width: scaleItem(30)
-		height: scaleItem(30)
+		width: scaleItemWidth(30)
+		height: scaleItemHeight(30)
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(40)
+		anchors.leftMargin: scaleItemWidth(40)
 		anchors.top: parent.top
-		anchors.topMargin: parent.height / 2 - titleContentHeight - genreContentHeight - scaleItem(10) - scaleItem(30)- scaleItem(20)
+		anchors.topMargin: parent.height / 2 - titleContentHeight - genreContentHeight - scaleItemHeight(10) - scaleItemHeight(30)- scaleItemHeight(20)
 		opacity: 0
 			
 		Image {
@@ -499,12 +499,12 @@ FocusScope {
 	
 	Item {
 		id: gamesummaryContainer
-		width: scaleItem(400)
-		height: scaleItem(110)
+		width: scaleItemWidth(400)
+		height: scaleItemHeight(110)
 		anchors.top: parent.top
-		anchors.topMargin: parent.height/2 + scaleItem(30)
+		anchors.topMargin: parent.height/2 + scaleItemHeight(30)
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(40)
+		anchors.leftMargin: scaleItemWidth(40)
 		opacity: 0
 
 		PegasusUtils.AutoScroll {												
@@ -516,7 +516,7 @@ FocusScope {
 				color: colorScheme[theme].text
 				opacity: 0.7;
 				font {
-					pixelSize: scaleItem(15);
+					pixelSize: scaleItemHeight(15);
 					bold: false;
 					family: globalFonts.condensed
 				}
@@ -536,13 +536,13 @@ FocusScope {
 		
 		Image {
 			id: gamecover									
-			width: scaleItem(250)
+			width: scaleItemWidth(250)
 			fillMode: Image.PreserveAspectFit
 			source: currentGame.assets.boxFront
 			asynchronous: true
 
 			anchors.left: parent.left
-			anchors.leftMargin: scaleItem(512) - scaleItem(120)
+			anchors.leftMargin: scaleItemWidth(512) - scaleItemWidth(120)
 			anchors.verticalCenter: parent.verticalCenter
 		}
 	
@@ -564,12 +564,12 @@ FocusScope {
 		
 		Rectangle {
 			id: gameinfoRect
-			height: scaleItem(120)
-			width: scaleItem(0)
+			height: scaleItemHeight(120)
+			width: scaleItemWidth(0)
 			anchors.left: parent.left
-			anchors.leftMargin: scaleItem(40)
+			anchors.leftMargin: scaleItemWidth(40)
 			anchors.top: parent.top
-			anchors.topMargin: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10)
+			anchors.topMargin: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10)
 			color: colorScheme[theme].background 
 		}
 		
@@ -587,24 +587,24 @@ FocusScope {
 	
 	Rectangle {								
 		id: gameinfoAccent
-		height: scaleItem(120)
-		width: scaleItem(0)
+		height: scaleItemHeight(120)
+		width: scaleItemWidth(0)
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(40)
+		anchors.leftMargin: scaleItemWidth(40)
 		anchors.top: parent.top
-		anchors.topMargin: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10)
+		anchors.topMargin: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10)
 		color: collectiondata.getColor(currentCollection.shortName)
 		opacity: 0
 	}
 
 	Rectangle {							
 		id: gameinfoDivider
-		height: scaleItem(100)
-		width: scaleItem(2)
+		height: scaleItemHeight(100)
+		width: scaleItemWidth(2)
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(239)
+		anchors.leftMargin: scaleItemWidth(239)
 		anchors.top: parent.top
-		anchors.topMargin: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10) + scaleItem(10) + scaleItem (10)
+		anchors.topMargin: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10) + scaleItemHeight(10) + scaleItemHeight (10)
 		color: colorScheme[theme].text 
 		opacity: 0
 	}
@@ -612,18 +612,18 @@ FocusScope {
 	Item {
 		id: gamereleaseContainer
 		anchors.top: parent.top
-		anchors.topMargin: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10) + scaleItem(20)
+		anchors.topMargin: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10) + scaleItemHeight(20)
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(50)
+		anchors.leftMargin: scaleItemWidth(50)
 		
 		opacity: 0
 		
 		Image {
 			anchors.top: parent.top
-			anchors.topMargin: -scaleItem (5)
+			anchors.topMargin: -scaleItemHeight (5)
 			anchors.left: parent.left
-			width: scaleItem(189)
-			height: scaleItem(50)
+			width: scaleItemWidth(189)
+			height: scaleItemHeight(50)
 			horizontalAlignment : Image.AlignHCenter
 			verticalAlignment : Image.AlignVCenter
 			fillMode: Image.PreserveAspectFit
@@ -634,13 +634,13 @@ FocusScope {
 			text: currentGame.releaseYear
 			color: collectiondata.getColor(currentCollection.shortName);
 			font.family: globalFonts.sans
-			font.pixelSize: scaleItem(30)
+			font.pixelSize: scaleItemHeight(30)
 			font.bold: true
 			anchors.top: parent.top
-			anchors.topMargin: scaleItem (30)
+			anchors.topMargin: scaleItemHeight (30)
 			anchors.left: parent.left
-			width: scaleItem(189)
-			height: scaleItem(60)
+			width: scaleItemWidth(189)
+			height: scaleItemHeight(60)
 			horizontalAlignment : Text.AlignHCenter
 			verticalAlignment : Text.AlignVCenter
 		}
@@ -649,14 +649,14 @@ FocusScope {
 			text: "Release"
 			color: colorScheme[theme].text
 			font.family: globalFonts.sans
-			font.pixelSize: scaleItem(15)
+			font.pixelSize: scaleItemHeight(15)
 			font.bold: true
 			opacity: 0.3
 			anchors.top: parent.top
-			anchors.topMargin: scaleItem (70)
+			anchors.topMargin: scaleItemHeight (70)
 			anchors.left: parent.left
-			width: scaleItem(189)
-			height: scaleItem(50)
+			width: scaleItemWidth(189)
+			height: scaleItemHeight(50)
 			horizontalAlignment : Text.AlignHCenter
 			verticalAlignment : Text.AlignVCenter
 		}
@@ -666,24 +666,24 @@ FocusScope {
 		id: ratingContainer
 		
 		anchors.top: parent.top
-		anchors.topMargin: scaleItem(360) + scaleItem(10) + (summaryContentHeight > scaleItem(120) ? scaleItem(120) : summaryContentHeight) + scaleItem(10) + scaleItem(20)
+		anchors.topMargin: scaleItemHeight(360) + scaleItemHeight(10) + (summaryContentHeight > scaleItemHeight(120) ? scaleItemHeight(120) : summaryContentHeight) + scaleItemHeight(10) + scaleItemHeight(20)
 		anchors.left: parent.left
-		anchors.leftMargin: scaleItem(241)
+		anchors.leftMargin: scaleItemWidth(241)
 		
 		opacity: 0
 		
 		Text {
 			text: rating
 			anchors.top: parent.top
-			anchors.topMargin: scaleItem (10)
+			anchors.topMargin: scaleItemHeight (10)
 			anchors.left: parent.left
 			color: colorScheme[theme].text
 			opacity: 0.3
 			font.family: globalFonts.sans
-			font.pixelSize: scaleItem(20)
+			font.pixelSize: scaleItemHeight(20)
 			font.bold: true
-			width: scaleItem(189)
-			height: scaleItem(26)
+			width: scaleItemWidth(189)
+			height: scaleItemHeight(26)
 			horizontalAlignment : Text.AlignHCenter
 			verticalAlignment : Text.AlignVCenter
 		}
@@ -691,11 +691,11 @@ FocusScope {
 		Image{
 			id: ratingstars
 			anchors.top: parent.top
-			anchors.topMargin: scaleItem (30)
+			anchors.topMargin: scaleItemHeight (30)
 			anchors.left: parent.left
-			anchors.leftMargin: scaleItem(30)
-			width: scaleItem(129)
-			height: scaleItem(60)
+			anchors.leftMargin: scaleItemWidth(30)
+			width: scaleItemWidth(129)
+			height: scaleItemHeight(60)
 			horizontalAlignment : Image.AlignHCenter
 			verticalAlignment : Image.AlignVCenter
 			fillMode: Image.PreserveAspectFit
@@ -711,14 +711,14 @@ FocusScope {
 			text: "Rating"
 			color: colorScheme[theme].text
 			font.family: globalFonts.sans
-			font.pixelSize: scaleItem(15)
+			font.pixelSize: scaleItemHeight(15)
 			font.bold: true
 			opacity: 0.3
 			anchors.top: parent.top
-			anchors.topMargin: scaleItem (70)
+			anchors.topMargin: scaleItemHeight (70)
 			anchors.left: parent.left
-			width: scaleItem(189)
-			height: scaleItem(50)
+			width: scaleItemWidth(189)
+			height: scaleItemHeight(50)
 			horizontalAlignment : Text.AlignHCenter
 			verticalAlignment : Text.AlignVCenter
 		}
@@ -727,16 +727,16 @@ FocusScope {
 	Rectangle {
 		id: scrollbuttonsContainer
 		anchors.right: parent.right
-		anchors.rightMargin: scaleItem(30)		
+		anchors.rightMargin: scaleItemWidth(30)		
 		anchors.bottom: parent.bottom
-		anchors.bottomMargin: scaleItem(30)
+		anchors.bottomMargin: scaleItemHeight(30)
 		color: colorScheme[theme].background 
 		opacity: 0
 		
 		AnimatedImage {
 			anchors.bottom: parent.bottom
 			anchors.right: parent.right
-			width: scaleItem(80)
+			width: scaleItemWidth(80)
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/images/icons/Colorful_PlatformWheel_Arrows_Vertical_type2.gif"
 		}
@@ -785,8 +785,8 @@ FocusScope {
 		id: nogamesContainer
 			anchors.left: parent.left
 			anchors.top: parent.top
-			anchors.topMargin: scaleItem(115)
-			anchors.leftMargin: scaleItem(30)
+			anchors.topMargin: scaleItemHeight(115)
+			anchors.leftMargin: scaleItemWidth(30)
 		
 			visible: currentGame == null && (gameswheel.state === "filtered")
 		
@@ -796,7 +796,7 @@ FocusScope {
 			text: "No games available for current filter"
 			color: colorScheme[theme].text
 			font.family: globalFonts.sans
-			font.pixelSize: scaleItem(30)
+			font.pixelSize: scaleItemHeight(30)
 			font.bold: true
 		}
 	}

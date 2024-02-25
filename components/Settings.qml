@@ -14,14 +14,14 @@ FocusScope {
 	Text {
 		anchors {
             top: parent.top
-            topMargin: scaleItem(50)
+            topMargin: scaleItemHeight(50)
             bottom: parent.bottom
             left: parent.left
-			leftMargin: scaleItem(200)
+			leftMargin: scaleItemWidth(200)
         }
 		text: "Theme Settings"
         font.family: globalFonts.sans
-		font.pixelSize: scaleItem(50)
+		font.pixelSize: scaleItemHeight(50)
 		font.bold: true
 		color: colorScheme[theme].text
 	}
@@ -55,7 +55,7 @@ FocusScope {
         }
     }
 
-    property real itemheight: scaleItem(50)
+    property real itemheight: scaleItemHeight(50)
 
     ListView {
         id: settingsList
@@ -63,15 +63,15 @@ FocusScope {
         delegate: settingsDelegate
         anchors {
             top: parent.top
-            topMargin: scaleItem(150)
+            topMargin: scaleItemHeight(150)
             bottom: parent.bottom
             left: parent.left
-			leftMargin: scaleItem(200)
+			leftMargin: scaleItemWidth(200)
             right: parent.right
-			rightMargin: scaleItem(200)
+			rightMargin: scaleItemWidth(200)
         }
-        width: scaleItem(500)
-        spacing: scaleItem(0)
+        width: scaleItemWidth(500)
+        spacing: scaleItemHeight(0)
         orientation: ListView.Vertical
 		
 		currentIndex: currentSettingsIndex
@@ -132,7 +132,7 @@ FocusScope {
                     color: colorScheme[theme].text
                     font {
                         family: global.fonts.condensed
-                        pixelSize: scaleItem(30)
+                        pixelSize: scaleItemHeight(30)
                     }
                     verticalAlignment: Text.AlignVCenter
                     opacity: selected ? 1 : 0.2
@@ -141,7 +141,7 @@ FocusScope {
                     height: parent.height
                     anchors {
                         left: parent.left
-                        leftMargin: scaleItem(40)
+                        leftMargin: scaleItemWidth(40)
                     }
                 }
 
@@ -151,7 +151,7 @@ FocusScope {
                     color: colorScheme[theme].accent
                     font {
                         family: global.fonts.condensed
-                        pixelSize: scaleItem(30)
+                        pixelSize: scaleItemHeight(30)
                     }
                     verticalAlignment: Text.AlignVCenter
                     opacity: selected ? 1 : 0.2
@@ -159,21 +159,21 @@ FocusScope {
                     height: parent.height
                     anchors {
                         right: parent.right
-                        rightMargin: scaleItem(40)
+                        rightMargin: scaleItemWidth(40)
                     }
                 }
 
                 Rectangle {
                     anchors {
                         left: parent.left
-                        leftMargin: scaleItem(25)
+                        leftMargin: scaleItemWidth(25)
                         right: parent.right
-                        rightMargin: scaleItem(25)
+                        rightMargin: scaleItemWidth(25)
                         bottom: parent.bottom
                     }
                     color: colorScheme[theme].text
                     opacity: selected ? 0.1 : 0
-                    height: scaleItem(1)
+                    height: scaleItemHeight(1)
                 }
 
                 Keys.onRightPressed: {

@@ -195,10 +195,15 @@ FocusScope {
 	
 	property int screenwidth: Screen.width
 	property int screenheight: Screen.height
-	property real scaleFactor: Math.min(width / 1280, height / 720)
+	property real scaleFactorWidth: width / 1280
+	property real scaleFactorHeight: height / 720
 	
-	function scaleItem(originalSize) {
-		return originalSize * scaleFactor
+	function scaleItemWidth(originalSize) {
+		return originalSize * scaleFactorWidth
+    }
+	
+	function scaleItemHeight(originalSize) {
+		return originalSize * scaleFactorHeight
     }
 }
 
