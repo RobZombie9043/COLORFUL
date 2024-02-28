@@ -46,6 +46,10 @@ FocusScope {
 		
 		keyNavigationWraps: true		
 		Keys.onPressed:{
+			 // A weird issue where when you launch a game it spams auto repeat when Pegasus loads back
+            if (event.isAutoRepeat) {
+                return
+            }
 			if (api.keys.isAccept(event))
 			{
 				event.accepted = true;
