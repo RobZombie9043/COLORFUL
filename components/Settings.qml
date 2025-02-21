@@ -38,6 +38,7 @@ FocusScope {
 			[ "Play Videos on Collections View",  "videoplaycollections",  "",  "Enabled,Disabled" ],
 			[ "Play Videos on Games View",  "videoplaygames",  "",  "Enabled,Disabled" ],
 			[ "Play Video Sounds",  "videosound",  "",  "Enabled,Disabled" ],
+			[ "Play Music instead of video when available",  "musicsound",  "",  "Enabled,Disabled" ],
 			[ "Show All Games Playlist", "allGamesCollection", "", "Yes,No" ],
 			[ "Show Favorites Playlist", "favoritesCollection", "", "Yes,No" ],
 			[ "Show Last Played Playlist", "lastPlayedCollection", "", "Yes,No" ],
