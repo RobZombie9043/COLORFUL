@@ -155,6 +155,10 @@ FocusScope {
 		}
 	}
 
+        property bool musicsound: {
+            return api.memory.get('musicsound') == "Enabled";
+        }
+
 	property int allGamesCollection: api.memory.get('allGamesCollectionIndex') || 0
     property int favoritesCollection: api.memory.get('favoritesCollectionIndex') || 0
     property int lastPlayedCollection: api.memory.get('lastPlayedCollectionIndex') || 0

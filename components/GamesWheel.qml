@@ -400,6 +400,8 @@ FocusScope {
 		}
 	}
 
+	property string musicSource: currentGame.assets.music
+
 	Component {
 		id: videoPreviewWrapper
 
@@ -411,8 +413,17 @@ FocusScope {
 			loops: MediaPlayer.Infinite
 			autoPlay: true
 			visible: videoSource && videoplaygames
-			muted: videosound
+			muted: (musicSource && musicsound) || videosound
+			Audio {
+				id: musicPlayer
+
+				autoPlay: true
+				muted: !musicsound
+				loops: MediaPlayer.Infinite
+				source: musicSource
+			}
 		}
+
 	}
 	
 	Item {

@@ -26,6 +26,7 @@ Platforms included:
 - `screenshot`
 - `wheel`
 - `video`
+- `music`
 
 ---
 
